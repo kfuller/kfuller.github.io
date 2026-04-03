@@ -1,0 +1,1174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RASOR Center — Risk and Security Operations Research</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;500;600;700;800&family=Barlow:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --black: #080808;
+  --black2: #0E0E0F;
+  --black3: #141416;
+  --blue: #2B9FE8;
+  --blue-bright: #45B8FF;
+  --blue-dim: #1A6FA8;
+  --blue-glow: rgba(43,159,232,0.15);
+  --blue-glow2: rgba(43,159,232,0.06);
+  --white: #F0F0F0;
+  --white-dim: #A0A8B0;
+  --white-hint: #505860;
+  --border: rgba(43,159,232,0.2);
+  --border-dim: rgba(255,255,255,0.07);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--black);
+  color: var(--white);
+  font-family: 'Barlow', sans-serif;
+  font-weight: 300;
+  overflow-x: hidden;
+  cursor: default;
+}
+
+/* ── NOISE OVERLAY ── */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.4;
+}
+
+/* ── NAV ── */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 3rem;
+  background: rgba(8,8,8,0.85);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border-dim);
+  gap: 2rem;
+  white-space: nowrap;
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.logo-icon {
+  width: 36px;
+  height: 36px;
+  position: relative;
+}
+
+.nav-wordmark {
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+}
+
+.nav-wordmark-top {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 800;
+  font-size: 18px;
+  letter-spacing: 0.12em;
+  color: var(--white);
+  text-transform: uppercase;
+}
+
+.nav-wordmark-sub {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.18em;
+  color: var(--blue);
+  text-transform: uppercase;
+  margin-top: 2px;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  list-style: none;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+.nav-links a {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--white-dim);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.nav-links a:hover { color: var(--blue-bright); }
+
+.nav-cta {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--blue-bright) !important;
+  border: 1px solid var(--border) !important;
+  padding: 8px 20px;
+  border-radius: 2px;
+  transition: background 0.2s, color 0.2s !important;
+}
+
+.nav-cta:hover {
+  background: var(--blue-glow) !important;
+  color: var(--white) !important;
+}
+
+/* ── HERO ── */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 8rem 4rem 6rem;
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+/* Grid lines */
+.hero-bg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(43,159,232,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(43,159,232,0.04) 1px, transparent 1px);
+  background-size: 60px 60px;
+  mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 40%, transparent 100%);
+}
+
+/* Glow orb */
+.hero-bg::after {
+  content: '';
+  position: absolute;
+  top: -20%;
+  right: -10%;
+  width: 70vw;
+  height: 70vw;
+  background: radial-gradient(ellipse, rgba(43,159,232,0.08) 0%, transparent 65%);
+  pointer-events: none;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 1100px;
+}
+
+.hero-eyebrow {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--blue);
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  opacity: 0;
+  animation: fadeUp 0.8s ease forwards 0.2s;
+}
+
+.hero-eyebrow::before {
+  content: '';
+  display: block;
+  width: 32px;
+  height: 1px;
+  background: var(--blue);
+}
+
+.hero-headline {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 800;
+  font-size: clamp(52px, 8vw, 110px);
+  line-height: 0.92;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  margin-bottom: 2rem;
+  opacity: 0;
+  animation: fadeUp 0.8s ease forwards 0.4s;
+}
+
+.hero-headline .line-blue { color: var(--blue-bright); }
+.hero-headline .line-outline {
+  -webkit-text-stroke: 1px rgba(255,255,255,0.3);
+  color: transparent;
+}
+
+.hero-sub {
+  font-size: 18px;
+  font-weight: 300;
+  color: var(--white-dim);
+  line-height: 1.7;
+  max-width: 560px;
+  margin-bottom: 3rem;
+  opacity: 0;
+  animation: fadeUp 0.8s ease forwards 0.6s;
+}
+
+.hero-sub strong {
+  color: var(--white);
+  font-weight: 400;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  opacity: 0;
+  animation: fadeUp 0.8s ease forwards 0.8s;
+}
+
+.btn-primary {
+  font-family: 'DM Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--black);
+  background: var(--blue-bright);
+  border: none;
+  padding: 14px 32px;
+  border-radius: 2px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.2s, transform 0.15s;
+  display: inline-block;
+}
+
+.btn-primary:hover {
+  background: #fff;
+  transform: translateY(-1px);
+}
+
+.btn-secondary {
+  font-family: 'DM Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--white-dim);
+  background: transparent;
+  border: 1px solid var(--border);
+  padding: 14px 32px;
+  border-radius: 2px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: border-color 0.2s, color 0.2s, transform 0.15s;
+  display: inline-block;
+}
+
+.btn-secondary:hover {
+  border-color: var(--blue);
+  color: var(--white);
+  transform: translateY(-1px);
+}
+
+/* Scroll indicator */
+.hero-scroll {
+  position: absolute;
+  bottom: 2.5rem;
+  left: 4rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--white-hint);
+  opacity: 0;
+  animation: fadeUp 0.8s ease forwards 1.2s;
+}
+
+.scroll-line {
+  width: 40px;
+  height: 1px;
+  background: var(--white-hint);
+  position: relative;
+  overflow: hidden;
+}
+
+.scroll-line::after {
+  content: '';
+  position: absolute;
+  left: -100%;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--blue);
+  animation: scrollSlide 2s ease-in-out infinite 1.5s;
+}
+
+/* Stats bar */
+.hero-stats {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  display: flex;
+  border-top: 1px solid var(--border-dim);
+  border-left: 1px solid var(--border-dim);
+  opacity: 0;
+  animation: fadeIn 0.8s ease forwards 1s;
+}
+
+.stat-item {
+  padding: 1.5rem 2.5rem;
+  border-right: 1px solid var(--border-dim);
+  text-align: center;
+}
+
+.stat-num {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 32px;
+  color: var(--blue-bright);
+  line-height: 1;
+  display: block;
+}
+
+.stat-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--white-hint);
+  margin-top: 4px;
+  display: block;
+}
+
+/* ── SECTION BASE ── */
+section {
+  position: relative;
+  z-index: 1;
+  padding: 6rem 4rem;
+}
+
+.section-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--blue);
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.section-label::before {
+  content: '';
+  display: block;
+  width: 20px;
+  height: 1px;
+  background: var(--blue);
+}
+
+.section-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700;
+  font-size: clamp(36px, 5vw, 60px);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  line-height: 1;
+  margin-bottom: 1.5rem;
+}
+
+.section-title .accent { color: var(--blue-bright); }
+
+/* ── PREMISE SECTION ── */
+.premise {
+  background: var(--black2);
+  border-top: 1px solid var(--border-dim);
+  border-bottom: 1px solid var(--border-dim);
+}
+
+.premise-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6rem;
+  align-items: center;
+}
+
+.premise-statement {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 600;
+  font-size: clamp(28px, 3.5vw, 44px);
+  line-height: 1.2;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.premise-statement .hl {
+  color: var(--blue-bright);
+  display: block;
+}
+
+.premise-body {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.premise-point {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.premise-icon {
+  width: 2px;
+  flex-shrink: 0;
+  background: var(--blue);
+  align-self: stretch;
+  min-height: 20px;
+  margin-top: 4px;
+}
+
+.premise-point p {
+  font-size: 15px;
+  color: var(--white-dim);
+  line-height: 1.75;
+}
+
+.premise-point p strong {
+  color: var(--white);
+  font-weight: 500;
+}
+
+/* ── WHO IT'S FOR ── */
+.audience {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.audience-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+
+.audience-card {
+  background: var(--black3);
+  border: 1px solid var(--border-dim);
+  border-radius: 2px;
+  padding: 2.5rem;
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.3s;
+}
+
+.audience-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--blue), transparent);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.audience-card:hover {
+  border-color: rgba(43,159,232,0.3);
+}
+
+.audience-card:hover::before {
+  opacity: 1;
+}
+
+.audience-tag {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--blue);
+  background: var(--blue-glow2);
+  border: 1px solid rgba(43,159,232,0.2);
+  padding: 4px 12px;
+  border-radius: 1px;
+  display: inline-block;
+  margin-bottom: 1.25rem;
+}
+
+.audience-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 26px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 0.75rem;
+  line-height: 1.1;
+}
+
+.audience-desc {
+  font-size: 14px;
+  color: var(--white-dim);
+  line-height: 1.75;
+  margin-bottom: 1.5rem;
+}
+
+.audience-traits {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.trait {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  color: var(--white-hint);
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.trait::before {
+  content: '//';
+  color: var(--blue-dim);
+  flex-shrink: 0;
+}
+
+/* ── OFFERS ── */
+.offers {
+  background: var(--black2);
+  border-top: 1px solid var(--border-dim);
+}
+
+.offers-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.offers-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1px;
+  background: var(--border-dim);
+  border: 1px solid var(--border-dim);
+  margin-top: 3rem;
+}
+
+.offer-block {
+  background: var(--black2);
+  padding: 2.5rem;
+  position: relative;
+  transition: background 0.3s;
+  display: flex;
+  flex-direction: column;
+}
+
+.offer-block:hover {
+  background: var(--black3);
+}
+
+.offer-num {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 800;
+  font-size: 72px;
+  color: rgba(43,159,232,0.07);
+  line-height: 1;
+  position: absolute;
+  top: 1rem;
+  right: 1.5rem;
+  user-select: none;
+}
+
+.offer-type {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--blue);
+  margin-bottom: 1rem;
+}
+
+.offer-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 22px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 0.5rem;
+  line-height: 1.2;
+}
+
+.offer-price {
+  font-family: 'DM Mono', monospace;
+  font-size: 20px;
+  color: var(--blue-bright);
+  margin-bottom: 1rem;
+  min-height: 60px;
+}
+
+.offer-price span {
+  font-size: 11px;
+  color: var(--white-hint);
+}
+
+.offer-desc {
+  font-size: 13px;
+  color: var(--white-dim);
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+}
+
+.offer-items {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1;
+}
+
+.offer-items li {
+  font-size: 12px;
+  color: var(--white-hint);
+  display: flex;
+  gap: 8px;
+  line-height: 1.5;
+}
+
+.offer-items li::before {
+  content: '→';
+  color: var(--blue-dim);
+  flex-shrink: 0;
+  font-family: 'DM Mono', monospace;
+}
+
+.offer-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 1.5rem;
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--blue);
+  text-decoration: none;
+  transition: gap 0.2s, color 0.2s;
+  align-self: flex-start;
+}
+
+.offer-link:hover {
+  gap: 14px;
+  color: var(--blue-bright);
+}
+
+/* ── WORKSHOPS ── */
+.workshops {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.workshops-list {
+  margin-top: 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  background: var(--border-dim);
+  border: 1px solid var(--border-dim);
+}
+
+.workshop-row {
+  background: var(--black);
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 2rem;
+  padding: 1.75rem 2.5rem;
+  transition: background 0.2s;
+  cursor: pointer;
+}
+
+.workshop-row:hover {
+  background: var(--black3);
+}
+
+.workshop-row:hover .wk-arrow {
+  transform: translateX(6px);
+}
+
+.wk-name {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 600;
+  font-size: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 0.25rem;
+}
+
+.wk-meta-row {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.wk-tag {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  padding: 2px 10px;
+  border-radius: 1px;
+}
+
+.wk-price-tag {
+  background: var(--blue-glow2);
+  color: var(--blue);
+  border: 1px solid rgba(43,159,232,0.15);
+}
+
+.wk-len-tag {
+  color: var(--white-hint);
+  border: 1px solid var(--border-dim);
+}
+
+.wk-arrow {
+  font-size: 20px;
+  color: var(--blue-dim);
+  transition: transform 0.2s;
+}
+
+/* ── CTA SPLIT ── */
+.cta-split {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.cta-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+
+.cta-block {
+  border: 1px solid var(--border-dim);
+  padding: 3rem;
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.3s;
+}
+
+.cta-block::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--blue), var(--blue-dim), transparent);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.cta-block:hover {
+  border-color: var(--border);
+}
+
+.cta-block:hover::after {
+  opacity: 1;
+}
+
+.cta-eyebrow {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--blue);
+  margin-bottom: 1rem;
+}
+
+.cta-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 36px;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  line-height: 1.1;
+  margin-bottom: 1rem;
+}
+
+.cta-desc {
+  font-size: 14px;
+  color: var(--white-dim);
+  line-height: 1.75;
+  margin-bottom: 2rem;
+}
+
+/* ── FOOTER ── */
+footer {
+  border-top: 1px solid var(--border-dim);
+  padding: 2.5rem 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.footer-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.footer-wordmark {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.footer-sub {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.15em;
+  color: var(--white-hint);
+  text-transform: uppercase;
+  margin-top: 2px;
+}
+
+.footer-right {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  color: var(--white-hint);
+}
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes scrollSlide {
+  0% { left: -100%; }
+  50% { left: 100%; }
+  100% { left: 100%; }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  nav { padding: 1rem 1.5rem; }
+  nav .nav-links { display: none; }
+  .hero { padding: 7rem 1.5rem 5rem; }
+  section { padding: 4rem 1.5rem; }
+  .premise-inner { grid-template-columns: 1fr; gap: 3rem; }
+  .audience-grid { grid-template-columns: 1fr; }
+  .offers-grid { grid-template-columns: 1fr; }
+  .funnel-steps { grid-template-columns: 1fr; }
+  .funnel-step::after { display: none; }
+  .cta-grid { grid-template-columns: 1fr; }
+  footer { flex-direction: column; gap: 1rem; text-align: center; padding: 2rem 1.5rem; }
+  .hero-stats { position: static; border: none; border-top: 1px solid var(--border-dim); margin-top: 4rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">
+    <img src="data:image/jpeg;base64,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" class="logo-icon" alt="RASOR Center Logo" style="width:40px;height:40px;border-radius:4px;object-fit:cover;">
+    <div class="nav-wordmark">
+      <span class="nav-wordmark-top">RASOR Center</span>
+      <span class="nav-wordmark-sub">Risk & Security Operations Research</span>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#audience">Who It's For</a></li>
+    <li><a href="#offers">Offerings</a></li>
+    <li><a href="#workshops">Workshops</a></li>
+    <li><a href="#cta" class="nav-cta">Get Started</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">Risk &amp; Security Operations Research</div>
+    <h1 class="hero-headline">
+      <span class="line-blue">Security Programs</span><br>
+      <span>Don't Fail</span><br>
+      <span class="line-outline">Because of Tools.</span>
+    </h1>
+    <p class="hero-sub">
+      They fail because <strong>people aren't aligned, motivated, or equipped to own the work.</strong> RASOR Center exists to fix that — for the professionals inside the program and the organizations running it.
+    </p>
+    <div class="hero-actions">
+      <a href="#audience" class="btn-primary">Find Your Path</a>
+      <a href="#offers" class="btn-secondary">See the Offerings</a>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <div class="scroll-line"></div>
+    Scroll to explore
+  </div>
+  <div class="hero-stats">
+    <div class="stat-item">
+      <span class="stat-num">30%</span>
+      <span class="stat-label">Avg capacity lost to<br>misalignment</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num">3×</span>
+      <span class="stat-label">Faster audit cycles with<br>operational clarity</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num">2</span>
+      <span class="stat-label">Paths — individual<br>&amp; organizational</span>
+    </div>
+  </div>
+</section>
+
+<!-- PREMISE -->
+<section class="premise" id="about">
+  <div class="premise-inner">
+    <div>
+      <div class="section-label">The Premise</div>
+      <div class="premise-statement">
+        The missing layer in<br>
+        <span class="hl">every security program</span>
+        isn't technology.<br>it's performance.
+      </div>
+    </div>
+    <div class="premise-body">
+      <div class="premise-point">
+        <div class="premise-icon"></div>
+        <p><strong>Tools get bought and ignored.</strong> Frameworks get implemented and abandoned. The audit passes and nothing changes. The problem was never the software — it was who owns it, who understands it, and whether anyone cares enough to maintain it.</p>
+      </div>
+      <div class="premise-point">
+        <div class="premise-icon"></div>
+        <p><strong>Security professionals are burning out</strong> inside programs that weren't built for humans. Manual everything, unclear ownership, zero recognition, no path forward. The talent is there. The operating system isn't.</p>
+      </div>
+      <div class="premise-point">
+        <div class="premise-icon"></div>
+        <p><strong>RASOR Center operates at both levels.</strong> We coach the individual to perform at a higher level and advance faster. We advise the organization to build programs that actually run — with the right people, the right structure, and the right automation underneath it.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AUDIENCE -->
+<section id="audience">
+  <div class="audience">
+    <div class="section-label">Who It's For</div>
+    <h2 class="section-title">Two <span class="accent">Paths.</span><br>One Ecosystem.</h2>
+    <div class="audience-grid">
+      <div class="audience-card">
+        <span class="audience-tag">For Professionals · B2C</span>
+        <div class="audience-title">The Mid-Career Security Professional</div>
+        <p class="audience-desc">You're already in the industry. You're capable. But you feel capped — by your title, your organization, or a career track that wasn't designed around high performance. You want to move faster, communicate better, and build a reputation that precedes you.</p>
+        <div class="audience-traits">
+          <span class="trait">3–10 years in GRC, Security Engineering, Vulnerability Management, or Incident Response</span>
+          <span class="trait">Technically strong, looking to develop the leadership layer</span>
+          <span class="trait">Wants automation to create leverage, not just reduce workload</span>
+          <span class="trait">Interested in a curated peer network — not a generic forum</span>
+          <span class="trait">Open to a career move when the right opportunity appears</span>
+        </div>
+      </div>
+      <div class="audience-card">
+        <span class="audience-tag">For Organizations · B2B</span>
+        <div class="audience-title">The Security Leader at a Growing Tech Company</div>
+        <p class="audience-desc">Your program keeps stalling. You have the tools. You have the frameworks. But the team isn't bought in, ownership is unclear, and every audit cycle feels like starting over. You need someone who can walk in, diagnose what's actually broken, and fix it.</p>
+        <div class="audience-traits">
+          <span class="trait">CISO, VP Security, or Head of GRC at a 50–500 person tech company</span>
+          <span class="trait">SOC 2, ISO 27001, or FedRAMP on the roadmap or in progress</span>
+          <span class="trait">Program blocking enterprise sales, funding, or product velocity</span>
+          <span class="trait">Needs senior-level architecture without a $300k+ full-time hire</span>
+          <span class="trait">Ready to fix the human layer, not just add another platform</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OFFERS -->
+<section class="offers" id="offers">
+  <div class="offers-inner">
+    <div class="section-label">The Offerings</div>
+    <h2 class="section-title">Built to <span class="accent">Compound.</span></h2>
+    <div class="offers-grid">
+      <div class="offer-block">
+        <div class="offer-num">01</div>
+        <div class="offer-type">Community</div>
+        <div class="offer-title">RASOR Center Membership</div>
+        <div class="offer-price">$49<span>/month</span>
+          <div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--blue);margin-top:5px;font-weight:500;">Application Only</div>
+        </div>
+        <p class="offer-desc">An application-only performance guild for mid-career security professionals. The vault, the live sessions, the coaching, and the network — in one curated environment.</p>
+        <ul class="offer-items">
+          <li>The Vault — frameworks, templates, automation systems</li>
+          <li>Weekly live lab sessions and performance coaching</li>
+          <li>The RASOR Report — weekly deep-dives</li>
+          <li>Career acceleration and placement pipeline access</li>
+        </ul>
+        <a href="#cta" class="offer-link">Apply for membership →</a>
+      </div>
+      <div class="offer-block">
+        <div class="offer-num">02</div>
+        <div class="offer-type">Consulting</div>
+        <div class="offer-title">Fractional Security Program Director</div>
+        <div class="offer-price">From $10k<span>/month</span>
+          <div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--white-hint);margin-top:5px;font-weight:500;">Book a call to discuss fit</div>
+        </div>
+        <p class="offer-desc">Embedded program architecture. Diagnose the human and process failures, install ownership structures, deploy automation, and build a security program that actually runs without you in every room.</p>
+        <ul class="offer-items">
+          <li>Program health diagnostic and failure mapping</li>
+          <li>Communication and decision-ownership restructure</li>
+          <li>Automation stack deployment and documentation</li>
+          <li>Leadership alignment and executive reporting</li>
+        </ul>
+        <a href="#cta" class="offer-link">Book a strategy call →</a>
+      </div>
+      <div class="offer-block">
+        <div class="offer-num">03</div>
+        <div class="offer-type">Placement</div>
+        <div class="offer-title">Security Professional Placement</div>
+        <div class="offer-price" style="font-size:18px;">Relationship-Driven
+          <div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--white-hint);margin-top:5px;font-weight:500;">Inquire Directly</div>
+        </div>
+        <p class="offer-desc">When a RASOR Fellow is ready to move and an organization needs the right operator, we facilitate the match. Both sides already know and trust us. Nothing starts cold.</p>
+        <ul class="offer-items">
+          <li>Mid-career placements — proven candidates only</li>
+          <li>Warm introductions on both sides of the table</li>
+          <li>Natural byproduct of a working ecosystem</li>
+        </ul>
+        <a href="#cta" class="offer-link">Learn more →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WORKSHOPS -->
+<section id="workshops">
+  <div class="workshops">
+    <div class="section-label">Entry Points</div>
+    <h2 class="section-title">Start with a <span class="accent">Workshop.</span></h2>
+    <p style="font-size: 15px; color: var(--white-dim); line-height: 1.75; max-width: 560px; margin-bottom: 0;">Every fractional engagement starts with a diagnostic. Workshops are the fastest way to surface what's actually broken — and decide whether a longer engagement makes sense.</p>
+    <div class="workshops-list">
+      <div class="workshop-row">
+        <div>
+          <div class="wk-name">Why Your Security Program Is Underperforming</div>
+          <div class="wk-meta-row">
+            <span class="wk-tag wk-price-tag">Inquire for pricing</span>
+            <span class="wk-tag wk-len-tag">3 hrs · Virtual or On-site</span>
+            <span class="wk-tag wk-len-tag">For Security Leaders</span>
+          </div>
+        </div>
+        <div class="wk-arrow">→</div>
+      </div>
+      <div class="workshop-row">
+        <div>
+          <div class="wk-name">Building a Security Culture That Doesn't Require You to Beg</div>
+          <div class="wk-meta-row">
+            <span class="wk-tag wk-price-tag">Inquire for pricing</span>
+            <span class="wk-tag wk-len-tag">2.5 hrs · Virtual</span>
+            <span class="wk-tag wk-len-tag">Cross-functional Teams</span>
+          </div>
+        </div>
+        <div class="wk-arrow">→</div>
+      </div>
+      <div class="workshop-row">
+        <div>
+          <div class="wk-name">From Manual Compliance to Self-Running Security Operations</div>
+          <div class="wk-meta-row">
+            <span class="wk-tag wk-price-tag">Inquire for pricing</span>
+            <span class="wk-tag wk-len-tag">3 hrs · Technical Audience</span>
+            <span class="wk-tag wk-len-tag">GRC & Security Engineers</span>
+          </div>
+        </div>
+        <div class="wk-arrow">→</div>
+      </div>
+      <div class="workshop-row">
+        <div>
+          <div class="wk-name">The High-Performance Security Professional</div>
+          <div class="wk-meta-row">
+            <span class="wk-tag wk-price-tag">Inquire for pricing</span>
+            <span class="wk-tag wk-len-tag">90 min · Conference / Group</span>
+            <span class="wk-tag wk-len-tag">Individual Practitioners</span>
+          </div>
+        </div>
+        <div class="wk-arrow">→</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA SPLIT -->
+<section id="cta">
+  <div class="cta-split">
+    <div class="section-label">Get Started</div>
+    <h2 class="section-title">Choose Your <span class="accent">Path.</span></h2>
+    <div class="cta-grid">
+      <div class="cta-block">
+        <div class="cta-eyebrow">For Professionals</div>
+        <div class="cta-title">Join the RASOR Center</div>
+        <p class="cta-desc">Application-only. For mid-career security professionals who are serious about leveling up — their skills, their communication, their career trajectory, and their output. $150/month. Limited seats.</p>
+        <a href="#" class="btn-primary">Apply for Membership</a>
+      </div>
+      <div class="cta-block">
+        <div class="cta-eyebrow">For Organizations</div>
+        <div class="cta-title">Book a Strategy Call</div>
+        <p class="cta-desc">30 minutes. We'll diagnose where your security program is losing capacity and whether a workshop or fractional engagement is the right next step. No pitch. Just a real conversation.</p>
+        <a href="#" class="btn-secondary" style="display: inline-block; padding: 14px 32px;">Book the Call</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-left">
+    <img src="data:image/jpeg;base64,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" alt="RASOR Center Logo" style="width:32px;height:32px;border-radius:4px;object-fit:cover;">
+    <div>
+      <div class="footer-wordmark">RASOR Center</div>
+      <div class="footer-sub">Risk &amp; Security Operations Research</div>
+    </div>
+  </div>
+  <div class="footer-right">© 2025 RASOR Center · All rights reserved</div>
+</footer>
+
+</body>
+</html>
