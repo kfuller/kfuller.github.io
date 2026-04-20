@@ -45,12 +45,12 @@ nav { position:fixed; top:0; left:0; right:0; z-index:1000; display:flex; align-
 .mobile-menu .mob-cta { color:var(--blue-bright) !important; border:1px solid var(--border); padding:12px 32px; border-radius:2px; font-size:14px; font-family:'DM Mono',monospace; letter-spacing:0.1em; margin-top:1rem; }
 
 /* ── BUTTONS ── */
-.btn-primary { font-family:'DM Mono',monospace; font-size:12px; letter-spacing:0.1em; text-transform:uppercase; color:var(--black); background:var(--blue-bright); border:none; padding:14px 32px; border-radius:2px; cursor:pointer; text-decoration:none; transition:background 0.2s,transform 0.15s; display:inline-block; }
+.btn-primary { font-family:'DM Mono',monospace; font-size:12px; letter-spacing:0.1em; text-transform:uppercase; color:var(--black); background:var(--blue-bright); border:none; padding:14px 32px; border-radius:2px; cursor:pointer; text-decoration:none; transition:background 0.2s,transform 0.15s; display:inline-block; white-space:nowrap; }
 .btn-primary:hover { background:#fff; transform:translateY(-1px); }
-.btn-secondary { font-family:'DM Mono',monospace; font-size:12px; letter-spacing:0.1em; text-transform:uppercase; color:var(--white-dim); background:transparent; border:1px solid var(--border); padding:14px 32px; border-radius:2px; cursor:pointer; text-decoration:none; transition:border-color 0.2s,color 0.2s,transform 0.15s; display:inline-block; }
+.btn-secondary { font-family:'DM Mono',monospace; font-size:12px; letter-spacing:0.1em; text-transform:uppercase; color:var(--white-dim); background:transparent; border:1px solid var(--border); padding:14px 32px; border-radius:2px; cursor:pointer; text-decoration:none; transition:border-color 0.2s,color 0.2s,transform 0.15s; display:inline-block; white-space:nowrap; }
 .btn-secondary:hover { border-color:var(--blue); color:var(--white); transform:translateY(-1px); }
-.btn-primary { font-family:'DM Mono',monospace; font-size:12px; letter-spacing:0.1em; text-transform:uppercase; color:var(--black); background:var(--blue); border:none; padding:14px 32px; border-radius:2px; cursor:pointer; text-decoration:none; transition:background 0.2s,transform 0.15s; display:inline-block; }
-.btn-primary:hover { background:#45B8FF; transform:translateY(-1px); }
+.btn-primary { font-family:'DM Mono',monospace; font-size:12px; letter-spacing:0.1em; text-transform:uppercase; color:var(--black); background:var(--blue-bright); border:none; padding:14px 32px; border-radius:2px; cursor:pointer; text-decoration:none; transition:background 0.2s,transform 0.15s; display:inline-block; white-space:nowrap; }
+.btn-primary:hover { background:#fff; transform:translateY(-1px); }
 
 /* ── SECTION BASE ── */
 section { position:relative; z-index:1; padding:6rem 4rem; }
@@ -241,8 +241,8 @@ footer { border-top:1px solid var(--border-dim); padding:2.5rem 4rem; display:fl
     </h1>
     <p class="adv-sub">We build and manage <strong>Customer Trust and Third Party Risk programs</strong> for growth-stage tech companies — so enterprise deals move faster and your product team stops waiting on vendor approvals.</p>
     <div class="adv-actions">
-      <a href="#contact" class="btn-primary">Book a Strategy Call</a>
-      <a href="#programs" class="btn-secondary">See the Programs</a>
+      <a href="#workshops" class="btn-primary">Start with a Workshop</a>
+      <a href="#programs" class="btn-secondary">See the Full Programs</a>
     </div>
   </div>
 </section>
@@ -267,6 +267,56 @@ footer { border-top:1px solid var(--border-dim); padding:2.5rem 4rem; display:fl
         <div class="diff-title">We Staff From Our Own Pipeline</div>
         <div class="diff-desc">RASOR Fellows are trained specifically in Customer Trust and TPRM using our methodology. When you need a full-time operator, we place someone who already knows the playbook.</div>
       </div>
+    </div>
+  </div>
+</section>
+
+<section class="workshops-adv" id="workshops">
+  <div class="inner">
+    <div class="section-label">Entry Points</div>
+    <h2 class="section-title">Start with a <span class="accent">Workshop.</span></h2>
+    <p style="font-size:15px;color:var(--white-dim);line-height:1.75;max-width:600px;margin-bottom:0;">Not ready for a full program build? Every advisory engagement starts with a conversation — and workshops are the fastest way to surface what's actually broken inside your organization. Most fractional engagements begin here.</p>
+    <div class="wk-adv-grid">
+      <div class="wk-adv-row">
+        <div>
+          <div class="wk-adv-name">Why Your Security Program Is Underperforming</div>
+          <div class="wk-adv-desc">Diagnoses the human and organizational failure modes killing your compliance program — ownership gaps, communication breakdown, decision bottlenecks. Designed for security leaders who are tired of starting over every audit cycle.</div>
+          <div class="wk-adv-tags">
+            <span class="wk-adv-tag featured">Most Popular</span>
+            <span class="wk-adv-tag">3 hrs</span>
+            <span class="wk-adv-tag">Security Leaders</span>
+            <span class="wk-adv-tag">Virtual or On-site</span>
+          </div>
+        </div>
+        <div class="wk-adv-arrow">→</div>
+      </div>
+      <div class="wk-adv-row">
+        <div>
+          <div class="wk-adv-name">Building a Security Culture That Doesn't Require You to Beg</div>
+          <div class="wk-adv-desc">For security leaders struggling with cross-functional buy-in. Covers incentive design, executive communication, and how to build accountability without antagonism. Particularly effective pre-audit or after a failed audit cycle.</div>
+          <div class="wk-adv-tags">
+            <span class="wk-adv-tag">2.5 hrs</span>
+            <span class="wk-adv-tag">Cross-functional Teams</span>
+            <span class="wk-adv-tag">Virtual</span>
+          </div>
+        </div>
+        <div class="wk-adv-arrow">→</div>
+      </div>
+      <div class="wk-adv-row">
+        <div>
+          <div class="wk-adv-name">From Manual Compliance to Self-Running Security Operations</div>
+          <div class="wk-adv-desc">The technical counterpart. Process mapping, automation architecture, evidence collection systems, and control monitoring — for GRC and security teams drowning in manual work. A natural lead-in to a full program build.</div>
+          <div class="wk-adv-tags">
+            <span class="wk-adv-tag">3 hrs</span>
+            <span class="wk-adv-tag">GRC &amp; Security Engineers</span>
+            <span class="wk-adv-tag">Technical Audience</span>
+          </div>
+        </div>
+        <div class="wk-adv-arrow">→</div>
+      </div>
+    </div>
+    <div style="margin-top:1.5rem;">
+      <a href="#contact" class="btn-primary">Inquire About a Workshop</a>
     </div>
   </div>
 </section>
@@ -385,55 +435,7 @@ footer { border-top:1px solid var(--border-dim); padding:2.5rem 4rem; display:fl
   </div>
 </section>
 
-<section class="workshops-adv" id="workshops">
-  <div class="inner">
-    <div class="section-label">Entry Points</div>
-    <h2 class="section-title">Start with a <span class="accent">Workshop.</span></h2>
-    <p style="font-size:15px;color:var(--white-dim);line-height:1.75;max-width:600px;margin-bottom:0;">Not ready for a full program build? Every advisory engagement starts with a conversation — and workshops are the fastest way to surface what's actually broken inside your organization. Most fractional engagements begin here.</p>
-    <div class="wk-adv-grid">
-      <div class="wk-adv-row">
-        <div>
-          <div class="wk-adv-name">Why Your Security Program Is Underperforming</div>
-          <div class="wk-adv-desc">Diagnoses the human and organizational failure modes killing your compliance program — ownership gaps, communication breakdown, decision bottlenecks. Designed for security leaders who are tired of starting over every audit cycle.</div>
-          <div class="wk-adv-tags">
-            <span class="wk-adv-tag featured">Most Popular</span>
-            <span class="wk-adv-tag">3 hrs</span>
-            <span class="wk-adv-tag">Security Leaders</span>
-            <span class="wk-adv-tag">Virtual or On-site</span>
-          </div>
-        </div>
-        <div class="wk-adv-arrow">→</div>
-      </div>
-      <div class="wk-adv-row">
-        <div>
-          <div class="wk-adv-name">Building a Security Culture That Doesn't Require You to Beg</div>
-          <div class="wk-adv-desc">For security leaders struggling with cross-functional buy-in. Covers incentive design, executive communication, and how to build accountability without antagonism. Particularly effective pre-audit or after a failed audit cycle.</div>
-          <div class="wk-adv-tags">
-            <span class="wk-adv-tag">2.5 hrs</span>
-            <span class="wk-adv-tag">Cross-functional Teams</span>
-            <span class="wk-adv-tag">Virtual</span>
-          </div>
-        </div>
-        <div class="wk-adv-arrow">→</div>
-      </div>
-      <div class="wk-adv-row">
-        <div>
-          <div class="wk-adv-name">From Manual Compliance to Self-Running Security Operations</div>
-          <div class="wk-adv-desc">The technical counterpart. Process mapping, automation architecture, evidence collection systems, and control monitoring — for GRC and security teams drowning in manual work. A natural lead-in to a full program build.</div>
-          <div class="wk-adv-tags">
-            <span class="wk-adv-tag">3 hrs</span>
-            <span class="wk-adv-tag">GRC &amp; Security Engineers</span>
-            <span class="wk-adv-tag">Technical Audience</span>
-          </div>
-        </div>
-        <div class="wk-adv-arrow">→</div>
-      </div>
-    </div>
-    <div style="margin-top:1.5rem;">
-      <a href="#contact" class="btn-primary">Inquire About a Workshop</a>
-    </div>
-  </div>
-</section>
+
 
 <section class="vs-section">
   <div class="inner">
@@ -520,7 +522,7 @@ footer { border-top:1px solid var(--border-dim); padding:2.5rem 4rem; display:fl
           <label class="form-label">What's the main challenge?</label>
           <textarea class="form-input" rows="3" placeholder="e.g. SOC 2 stalled, losing deals, no TPRM process..."></textarea>
         </div>
-        <button class="btn-primary" style="width:100%;text-align:center;">Request Strategy Call</button>
+        <button class="btn-primary" >Request Strategy Call</button>
       </div>
     </div>
   </div>

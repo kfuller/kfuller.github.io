@@ -45,12 +45,12 @@ nav { position:fixed; top:0; left:0; right:0; z-index:1000; display:flex; align-
 .mobile-menu .mob-cta { color:var(--blue-bright) !important; border:1px solid var(--border); padding:12px 32px; border-radius:2px; font-size:14px; font-family:'DM Mono',monospace; letter-spacing:0.1em; margin-top:1rem; }
 
 /* ── BUTTONS ── */
-.btn-primary { font-family:'DM Mono',monospace; font-size:12px; letter-spacing:0.1em; text-transform:uppercase; color:var(--black); background:var(--blue-bright); border:none; padding:14px 32px; border-radius:2px; cursor:pointer; text-decoration:none; transition:background 0.2s,transform 0.15s; display:inline-block; }
+.btn-primary { font-family:'DM Mono',monospace; font-size:12px; letter-spacing:0.1em; text-transform:uppercase; color:var(--black); background:var(--blue-bright); border:none; padding:14px 32px; border-radius:2px; cursor:pointer; text-decoration:none; transition:background 0.2s,transform 0.15s; display:inline-block; white-space:nowrap; }
 .btn-primary:hover { background:#fff; transform:translateY(-1px); }
-.btn-secondary { font-family:'DM Mono',monospace; font-size:12px; letter-spacing:0.1em; text-transform:uppercase; color:var(--white-dim); background:transparent; border:1px solid var(--border); padding:14px 32px; border-radius:2px; cursor:pointer; text-decoration:none; transition:border-color 0.2s,color 0.2s,transform 0.15s; display:inline-block; }
+.btn-secondary { font-family:'DM Mono',monospace; font-size:12px; letter-spacing:0.1em; text-transform:uppercase; color:var(--white-dim); background:transparent; border:1px solid var(--border); padding:14px 32px; border-radius:2px; cursor:pointer; text-decoration:none; transition:border-color 0.2s,color 0.2s,transform 0.15s; display:inline-block; white-space:nowrap; }
 .btn-secondary:hover { border-color:var(--blue); color:var(--white); transform:translateY(-1px); }
-.btn-primary { font-family:'DM Mono',monospace; font-size:12px; letter-spacing:0.1em; text-transform:uppercase; color:var(--black); background:var(--blue); border:none; padding:14px 32px; border-radius:2px; cursor:pointer; text-decoration:none; transition:background 0.2s,transform 0.15s; display:inline-block; }
-.btn-primary:hover { background:#45B8FF; transform:translateY(-1px); }
+.btn-primary { font-family:'DM Mono',monospace; font-size:12px; letter-spacing:0.1em; text-transform:uppercase; color:var(--black); background:var(--blue-bright); border:none; padding:14px 32px; border-radius:2px; cursor:pointer; text-decoration:none; transition:background 0.2s,transform 0.15s; display:inline-block; white-space:nowrap; }
+.btn-primary:hover { background:#fff; transform:translateY(-1px); }
 
 /* ── SECTION BASE ── */
 section { position:relative; z-index:1; padding:6rem 4rem; }
@@ -411,7 +411,7 @@ footer { border-top:1px solid var(--border-dim); padding:2.5rem 4rem; display:fl
       <div class="membership-cta" id="apply">
         <div class="mem-price">$49</div>
         <div class="mem-price-sub">Per month · Application Only</div>
-        <a href="#" class="btn-primary" style="width:100%;text-align:center;display:block;">Apply for Membership</a>
+        <a href="#" class="btn-primary" >Apply for Membership</a>
         <div class="mem-divider"></div>
         <div class="mem-note">Membership is application-only. We review every application to ensure the community maintains a high quality floor. If you're accepted you'll receive access within 48 hours.</div>
         <div style="display:flex;flex-direction:column;gap:8px;">

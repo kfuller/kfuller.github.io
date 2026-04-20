@@ -45,12 +45,12 @@ nav { position:fixed; top:0; left:0; right:0; z-index:1000; display:flex; align-
 .mobile-menu .mob-cta { color:var(--blue-bright) !important; border:1px solid var(--border); padding:12px 32px; border-radius:2px; font-size:14px; font-family:'DM Mono',monospace; letter-spacing:0.1em; margin-top:1rem; }
 
 /* ── BUTTONS ── */
-.btn-primary { font-family:'DM Mono',monospace; font-size:12px; letter-spacing:0.1em; text-transform:uppercase; color:var(--black); background:var(--blue-bright); border:none; padding:14px 32px; border-radius:2px; cursor:pointer; text-decoration:none; transition:background 0.2s,transform 0.15s; display:inline-block; }
+.btn-primary { font-family:'DM Mono',monospace; font-size:12px; letter-spacing:0.1em; text-transform:uppercase; color:var(--black); background:var(--blue-bright); border:none; padding:14px 32px; border-radius:2px; cursor:pointer; text-decoration:none; transition:background 0.2s,transform 0.15s; display:inline-block; white-space:nowrap; }
 .btn-primary:hover { background:#fff; transform:translateY(-1px); }
-.btn-secondary { font-family:'DM Mono',monospace; font-size:12px; letter-spacing:0.1em; text-transform:uppercase; color:var(--white-dim); background:transparent; border:1px solid var(--border); padding:14px 32px; border-radius:2px; cursor:pointer; text-decoration:none; transition:border-color 0.2s,color 0.2s,transform 0.15s; display:inline-block; }
+.btn-secondary { font-family:'DM Mono',monospace; font-size:12px; letter-spacing:0.1em; text-transform:uppercase; color:var(--white-dim); background:transparent; border:1px solid var(--border); padding:14px 32px; border-radius:2px; cursor:pointer; text-decoration:none; transition:border-color 0.2s,color 0.2s,transform 0.15s; display:inline-block; white-space:nowrap; }
 .btn-secondary:hover { border-color:var(--blue); color:var(--white); transform:translateY(-1px); }
-.btn-primary { font-family:'DM Mono',monospace; font-size:12px; letter-spacing:0.1em; text-transform:uppercase; color:var(--black); background:var(--blue); border:none; padding:14px 32px; border-radius:2px; cursor:pointer; text-decoration:none; transition:background 0.2s,transform 0.15s; display:inline-block; }
-.btn-primary:hover { background:#45B8FF; transform:translateY(-1px); }
+.btn-primary { font-family:'DM Mono',monospace; font-size:12px; letter-spacing:0.1em; text-transform:uppercase; color:var(--black); background:var(--blue-bright); border:none; padding:14px 32px; border-radius:2px; cursor:pointer; text-decoration:none; transition:background 0.2s,transform 0.15s; display:inline-block; white-space:nowrap; }
+.btn-primary:hover { background:#fff; transform:translateY(-1px); }
 
 /* ── SECTION BASE ── */
 section { position:relative; z-index:1; padding:6rem 4rem; }
@@ -140,7 +140,18 @@ footer { border-top:1px solid var(--border-dim); padding:2.5rem 4rem; display:fl
 .path-card.blue-card .path-cta { color:var(--blue); }
 .path-card:hover .path-cta { gap:14px; }
 
-/* PROOF */
+/* WORKSHOPS HP */
+.workshop-row-hp { background:var(--black2); display:grid; grid-template-columns:1fr auto; align-items:center; gap:1.5rem; padding:1.75rem 2rem; transition:background 0.2s; border-top:0.5px solid var(--border-dim); }
+.workshop-row-hp:first-child { border-top:none; }
+.workshop-row-hp:hover { background:var(--black3); }
+.wk-hp-name { font-family:'Barlow Condensed',sans-serif; font-weight:600; font-size:20px; text-transform:uppercase; letter-spacing:0.04em; margin-bottom:0.35rem; line-height:1.2; }
+.wk-hp-desc { font-size:14px; color:var(--white-dim); line-height:1.65; margin-bottom:0.5rem; }
+.wk-hp-tags { display:flex; gap:6px; flex-wrap:wrap; }
+.wk-hp-tag { font-family:'DM Mono',monospace; font-size:10px; padding:3px 10px; border-radius:1px; border:1px solid var(--border-dim); color:var(--white-hint); }
+.wk-hp-tag.featured { border-color:var(--border); color:var(--blue); background:var(--blue-glow2); }
+.wk-hp-arrow { font-size:20px; color:var(--blue-dim); text-decoration:none; transition:transform 0.2s; flex-shrink:0; display:block; }
+.workshop-row-hp:hover .wk-hp-arrow { transform:translateX(6px); color:var(--blue-bright); }
+@media (max-width:900px) { .workshop-row-hp { padding:1.25rem; gap:0.75rem; } .wk-hp-name { font-size:16px; } }
 .proof { background:var(--black2); border-top:1px solid var(--border-dim); border-bottom:1px solid var(--border-dim); }
 .proof-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--border-dim); border:1px solid var(--border-dim); margin-top:2.5rem; }
 .proof-block { background:var(--black2); padding:2.5rem 2rem; }
@@ -213,23 +224,23 @@ footer { border-top:1px solid var(--border-dim); padding:2.5rem 4rem; display:fl
       <div>
         <div class="section-label">The Problem</div>
         <div class="premise-statement">
-          Companies don't fail audits<br>
-          <span class="hl">because of missing tools.</span>
-          They fail because nobody<br>owns the program.
+          Security isn't losing you<br>
+          <span class="hl">audits. It's losing you</span>
+          customers, deals,<br>and product velocity.
         </div>
       </div>
       <div class="premise-body">
         <div class="premise-point">
           <div class="premise-icon"></div>
-          <p><strong>Enterprise deals get stuck in security review</strong> because the trust program isn't built, isn't current, and nobody can answer a questionnaire in under a week. That's a revenue problem, not a security problem.</p>
+          <p><strong>Enterprise deals stall or die</strong> because prospects ask security questions your team can't answer fast enough. A questionnaire that sits for two weeks signals disorganization to a buyer who is already evaluating your competitors.</p>
         </div>
         <div class="premise-point">
           <div class="premise-icon"></div>
-          <p><strong>Product velocity slows down</strong> when vendor approvals take six weeks because there's no TPRM process. Engineering waits. Roadmaps slip. The business pays for it.</p>
+          <p><strong>Product velocity gets taxed</strong> every time engineering has to wait weeks for a vendor to get approved. No TPRM process means every new tool, API, or platform is a bottleneck. Roadmaps slip. Teams get frustrated. The business absorbs the cost silently.</p>
         </div>
         <div class="premise-point">
           <div class="premise-icon"></div>
-          <p><strong>RASOR operates at both levels.</strong> We build the programs for organizations and develop the professionals who run them — so the work gets done and stays done.</p>
+          <p><strong>RASOR fixes both.</strong> We build the programs that make your security posture a selling point — and develop the professionals who keep those programs running at the speed your business demands.</p>
         </div>
       </div>
     </div>
@@ -256,11 +267,11 @@ footer { border-top:1px solid var(--border-dim); padding:2.5rem 4rem; display:fl
       <a href="advisory.html" class="path-card blue-card">
         <span class="path-tag blue-tag">For Organizations · RASOR Advisory</span>
         <div class="path-title">Build a Trust Program That Closes Deals</div>
-        <p class="path-desc">RASOR Advisory builds and manages Customer Trust and Third Party Risk programs for growth-stage tech companies. We lead the architecture. Our trained Fellows run the operations.</p>
+        <p class="path-desc">RASOR Advisory builds and manages Customer Trust and Third Party Risk programs for growth-stage tech companies. Start with a workshop or go straight to a full program build.</p>
         <ul class="path-list">
+          <li>Workshops — fastest way to diagnose what's broken</li>
           <li>Customer Trust Program — build &amp; manage</li>
           <li>Third Party Risk Program — build &amp; manage</li>
-          <li>Fractional oversight retainer — $5k/month</li>
           <li>Fellow placement for day-to-day operations</li>
         </ul>
         <div class="path-cta">Explore Advisory →</div>
@@ -293,6 +304,50 @@ footer { border-top:1px solid var(--border-dim); padding:2.5rem 4rem; display:fl
   </div>
 </section>
 
+<section id="workshops" style="background:var(--black2);border-top:1px solid var(--border-dim);border-bottom:1px solid var(--border-dim);">
+  <div class="inner">
+    <div class="section-label">Workshops</div>
+    <h2 class="section-title">The Fastest Way to <span class="accent">Get Started.</span></h2>
+    <p style="font-size:15px;color:var(--white-dim);line-height:1.75;max-width:580px;margin-bottom:2.5rem;">Not ready for a full program build? Workshops are a focused, high-impact entry point — designed to surface exactly where your organization is losing deals or velocity, and give your team a clear path forward.</p>
+    <div style="display:flex;flex-direction:column;gap:1px;background:var(--border-dim);border:1px solid var(--border-dim);">
+      <div class="workshop-row-hp">
+        <div>
+          <div class="wk-hp-name">Why Your Security Program Is Underperforming</div>
+          <div class="wk-hp-desc">For security leaders whose program keeps stalling. Diagnoses the real failure points — ownership gaps, communication breakdown, decision bottlenecks.</div>
+          <div class="wk-hp-tags">
+            <span class="wk-hp-tag featured">Most Popular</span>
+            <span class="wk-hp-tag">3 hrs · Security Leaders</span>
+          </div>
+        </div>
+        <a href="advisory.html#workshops" class="wk-hp-arrow">→</a>
+      </div>
+      <div class="workshop-row-hp">
+        <div>
+          <div class="wk-hp-name">Building a Security Culture That Doesn't Require You to Beg</div>
+          <div class="wk-hp-desc">For teams struggling with cross-functional buy-in. Covers incentive design, executive communication, and accountability without antagonism.</div>
+          <div class="wk-hp-tags">
+            <span class="wk-hp-tag">2.5 hrs · Cross-functional Teams</span>
+          </div>
+        </div>
+        <a href="advisory.html#workshops" class="wk-hp-arrow">→</a>
+      </div>
+      <div class="workshop-row-hp">
+        <div>
+          <div class="wk-hp-name">From Manual Compliance to Self-Running Security Operations</div>
+          <div class="wk-hp-desc">For GRC and security engineering teams drowning in manual work. Process mapping, automation architecture, and evidence collection systems.</div>
+          <div class="wk-hp-tags">
+            <span class="wk-hp-tag">3 hrs · GRC &amp; Security Engineers</span>
+          </div>
+        </div>
+        <a href="advisory.html#workshops" class="wk-hp-arrow">→</a>
+      </div>
+    </div>
+    <div style="margin-top:1.5rem;">
+      <a href="advisory.html#contact" class="btn-primary">Inquire About a Workshop</a>
+    </div>
+  </div>
+</section>
+
 <section id="cta">
   <div class="inner">
     <div class="section-label">Get Started</div>
@@ -302,13 +357,13 @@ footer { border-top:1px solid var(--border-dim); padding:2.5rem 4rem; display:fl
         <span class="path-tag">For Professionals</span>
         <div class="path-title">Join RASOR Center</div>
         <p class="path-desc">Application-only. $49/month. Build your career in Customer Trust and TPRM — the disciplines that sit at the intersection of security and revenue.</p>
-        <a href="community.html#apply" class="btn-primary" style="margin-top:auto;">Apply for Membership</a>
+        <a href="community.html#apply" class="btn-primary">Apply for Membership</a>
       </div>
       <div class="path-card blue-card">
         <span class="path-tag blue-tag">For Organizations</span>
         <div class="path-title">Book a Strategy Call</div>
         <p class="path-desc">30 minutes. We'll diagnose exactly where your trust program is costing you deals or slowing down your product — and what it takes to fix it.</p>
-        <a href="advisory.html#contact" class="btn-primary" style="margin-top:auto;">Book the Call</a>
+        <a href="advisory.html#contact" class="btn-primary">Book the Call</a>
       </div>
     </div>
   </div>
