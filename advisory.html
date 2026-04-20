@@ -16,7 +16,7 @@
   --blue-glow: rgba(43,159,232,0.15); --blue-glow2: rgba(43,159,232,0.06);
   --white: #F0F0F0; --white-dim: #A0A8B0; --white-hint: #505860;
   --border: rgba(43,159,232,0.2); --border-dim: rgba(255,255,255,0.07);
-  --gold: #C8965A; --gold-dim: rgba(200,150,90,0.15);
+  --gold: #2B9FE8; --gold-dim: rgba(43,159,232,0.06);
 }
 html { scroll-behavior: smooth; }
 body { background: var(--black); color: var(--white); font-family: 'Barlow', sans-serif; font-weight: 300; overflow-x: hidden; }
@@ -49,18 +49,18 @@ nav { position:fixed; top:0; left:0; right:0; z-index:1000; display:flex; align-
 .btn-primary:hover { background:#fff; transform:translateY(-1px); }
 .btn-secondary { font-family:'DM Mono',monospace; font-size:12px; letter-spacing:0.1em; text-transform:uppercase; color:var(--white-dim); background:transparent; border:1px solid var(--border); padding:14px 32px; border-radius:2px; cursor:pointer; text-decoration:none; transition:border-color 0.2s,color 0.2s,transform 0.15s; display:inline-block; }
 .btn-secondary:hover { border-color:var(--blue); color:var(--white); transform:translateY(-1px); }
-.btn-gold { font-family:'DM Mono',monospace; font-size:12px; letter-spacing:0.1em; text-transform:uppercase; color:var(--black); background:var(--gold); border:none; padding:14px 32px; border-radius:2px; cursor:pointer; text-decoration:none; transition:background 0.2s,transform 0.15s; display:inline-block; }
-.btn-gold:hover { background:#e0aa6a; transform:translateY(-1px); }
+.btn-primary { font-family:'DM Mono',monospace; font-size:12px; letter-spacing:0.1em; text-transform:uppercase; color:var(--black); background:var(--blue); border:none; padding:14px 32px; border-radius:2px; cursor:pointer; text-decoration:none; transition:background 0.2s,transform 0.15s; display:inline-block; }
+.btn-primary:hover { background:#45B8FF; transform:translateY(-1px); }
 
 /* ── SECTION BASE ── */
 section { position:relative; z-index:1; padding:6rem 4rem; }
 .section-label { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:0.2em; text-transform:uppercase; color:var(--blue); margin-bottom:0.75rem; display:flex; align-items:center; gap:10px; }
 .section-label::before { content:''; display:block; width:20px; height:1px; background:var(--blue); }
-.section-label.gold { color:var(--gold); }
-.section-label.gold::before { background:var(--gold); }
+.section-label.gold { color:var(--blue); }
+.section-label.gold::before { background:var(--blue); }
 .section-title { font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:clamp(32px,5vw,56px); text-transform:uppercase; letter-spacing:0.02em; line-height:1; margin-bottom:1.5rem; }
 .section-title .accent { color:var(--blue-bright); }
-.section-title .accent-gold { color:var(--gold); }
+.section-title .accent { color:var(--blue); }
 .inner { max-width:1100px; margin:0 auto; }
 
 /* ── FOOTER ── */
@@ -93,16 +93,16 @@ footer { border-top:1px solid var(--border-dim); padding:2.5rem 4rem; display:fl
 
 /* HERO */
 .adv-hero { position:relative; min-height:85vh; display:flex; flex-direction:column; justify-content:center; padding:9rem 4rem 6rem; overflow:hidden; }
-.adv-hero-bg::before { content:''; position:absolute; inset:0; background-image:linear-gradient(rgba(200,150,90,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(200,150,90,0.03) 1px,transparent 1px); background-size:80px 80px; mask-image:radial-gradient(ellipse 70% 70% at 50% 50%,black 30%,transparent 100%); }
-.adv-hero-bg::after { content:''; position:absolute; top:-20%; left:-10%; width:60vw; height:60vw; background:radial-gradient(ellipse,rgba(200,150,90,0.06) 0%,transparent 65%); pointer-events:none; }
+.adv-hero-bg::before { content:''; position:absolute; inset:0; background-image:linear-gradient(rgba(43,159,232,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(43,159,232,0.03) 1px,transparent 1px); background-size:80px 80px; mask-image:radial-gradient(ellipse 70% 70% at 50% 50%,black 30%,transparent 100%); }
+.adv-hero-bg::after { content:''; position:absolute; top:-20%; left:-10%; width:60vw; height:60vw; background:radial-gradient(ellipse,rgba(43,159,232,0.06) 0%,transparent 65%); pointer-events:none; }
 .adv-hero-bg { position:absolute; inset:0; z-index:0; }
 .adv-hero-content { position:relative; z-index:1; max-width:900px; }
-.adv-eyebrow { font-family:'DM Mono',monospace; font-size:11px; letter-spacing:0.2em; text-transform:uppercase; color:var(--gold); margin-bottom:1.5rem; display:flex; align-items:center; gap:12px; opacity:0; animation:fadeUp 0.8s ease forwards 0.2s; }
-.adv-eyebrow::before { content:''; display:block; width:32px; height:1px; background:var(--gold); }
+.adv-eyebrow { font-family:'DM Mono',monospace; font-size:11px; letter-spacing:0.2em; text-transform:uppercase; color:var(--blue); margin-bottom:1.5rem; display:flex; align-items:center; gap:12px; opacity:0; animation:fadeUp 0.8s ease forwards 0.2s; }
+.adv-eyebrow-el::before { content:''; display:block; width:32px; height:1px; background:var(--blue); }
 .adv-headline { font-family:'Barlow Condensed',sans-serif; font-weight:800; font-size:clamp(40px,7vw,96px); line-height:0.92; letter-spacing:-0.01em; text-transform:uppercase; margin-bottom:2rem; opacity:0; animation:fadeUp 0.8s ease forwards 0.4s; }
-.adv-headline .line-gold { color:var(--gold); }
+.adv-headline .line-blue { color:var(--blue-bright); }
 .adv-headline .line-outline { -webkit-text-stroke:1px rgba(255,255,255,0.25); color:transparent; }
-.adv-sub { font-size:17px; font-weight:300; color:var(--white-dim); line-height:1.75; max-width:560px; margin-bottom:3rem; opacity:0; animation:fadeUp 0.8s ease forwards 0.6s; }
+.adv-sub { font-size:18px; font-weight:300; color:var(--white-dim); line-height:1.75; max-width:560px; margin-bottom:3rem; opacity:0; animation:fadeUp 0.8s ease forwards 0.6s; }
 .adv-sub strong { color:var(--white); font-weight:400; }
 .adv-actions { display:flex; gap:1rem; flex-wrap:wrap; opacity:0; animation:fadeUp 0.8s ease forwards 0.8s; }
 
@@ -110,28 +110,28 @@ footer { border-top:1px solid var(--border-dim); padding:2.5rem 4rem; display:fl
 .diff { background:var(--black2); border-top:1px solid var(--border-dim); border-bottom:1px solid var(--border-dim); }
 .diff-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--border-dim); border:1px solid var(--border-dim); margin-top:2.5rem; }
 .diff-block { background:var(--black2); padding:2rem; }
-.diff-num { font-family:'Barlow Condensed',sans-serif; font-weight:800; font-size:11px; letter-spacing:0.2em; color:var(--gold); margin-bottom:1rem; }
+.diff-num { font-family:'Barlow Condensed',sans-serif; font-weight:800; font-size:11px; letter-spacing:0.2em; color:var(--blue); margin-bottom:1rem; }
 .diff-title { font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:20px; text-transform:uppercase; letter-spacing:0.04em; margin-bottom:0.5rem; }
-.diff-desc { font-size:13px; color:var(--white-dim); line-height:1.7; }
+.diff-desc { font-size:15px; color:var(--white-dim); line-height:1.75; }
 
 /* PROGRAMS */
 .programs-grid { display:grid; grid-template-columns:1fr 1fr; gap:1.5rem; margin-top:2.5rem; }
 .program-card { background:var(--black3); border:1px solid var(--border-dim); border-radius:2px; padding:2.5rem; position:relative; overflow:hidden; transition:border-color 0.3s; }
-.program-card::after { content:''; position:absolute; top:0; left:0; bottom:0; width:2px; background:linear-gradient(180deg,var(--gold),transparent); opacity:0; transition:opacity 0.3s; }
-.program-card:hover { border-color:rgba(200,150,90,0.35); }
+.program-card::after { content:''; position:absolute; top:0; left:0; bottom:0; width:2px; background:linear-gradient(180deg,var(--blue),transparent); opacity:0; transition:opacity 0.3s; }
+.program-card:hover { border-color:rgba(43,159,232,0.35); }
 .program-card:hover::after { opacity:1; }
-.program-tag { font-family:'DM Mono',monospace; font-size:9px; letter-spacing:0.18em; text-transform:uppercase; color:var(--gold); background:var(--gold-dim); border:1px solid rgba(200,150,90,0.25); padding:4px 12px; border-radius:1px; display:inline-block; margin-bottom:1.25rem; }
+.program-tag { font-family:'DM Mono',monospace; font-size:9px; letter-spacing:0.18em; text-transform:uppercase; color:var(--blue); background:var(--blue-glow2); border:1px solid rgba(43,159,232,0.25); padding:4px 12px; border-radius:1px; display:inline-block; margin-bottom:1.25rem; }
 .program-title { font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:26px; text-transform:uppercase; letter-spacing:0.04em; margin-bottom:0.5rem; line-height:1.1; }
-.program-pitch { font-size:14px; color:var(--white-dim); line-height:1.75; margin-bottom:1.5rem; }
+.program-pitch { font-size:15px; color:var(--white-dim); line-height:1.75; margin-bottom:1.5rem; }
 .program-phases { display:flex; flex-direction:column; gap:1px; background:var(--border-dim); margin-bottom:1.5rem; }
 .phase { background:var(--black3); padding:1rem 1.25rem; }
-.phase-label { font-family:'DM Mono',monospace; font-size:9px; letter-spacing:0.15em; text-transform:uppercase; color:var(--gold); margin-bottom:0.35rem; }
+.phase-label { font-family:'DM Mono',monospace; font-size:9px; letter-spacing:0.15em; text-transform:uppercase; color:var(--blue); margin-bottom:0.35rem; }
 .phase-title { font-size:13px; font-weight:500; margin-bottom:0.25rem; }
-.phase-price { font-family:'DM Mono',monospace; font-size:18px; color:var(--gold); }
+.phase-price { font-family:'DM Mono',monospace; font-size:18px; color:var(--blue); }
 .phase-price span { font-size:10px; color:var(--white-hint); }
 .phase-items { list-style:none; margin-top:0.5rem; display:flex; flex-direction:column; gap:4px; }
-.phase-items li { font-size:12px; color:var(--white-hint); display:flex; gap:8px; line-height:1.5; }
-.phase-items li::before { content:'→'; color:rgba(200,150,90,0.5); font-family:'DM Mono',monospace; font-size:10px; flex-shrink:0; }
+.phase-items li { font-size:14px; color:var(--white-hint); display:flex; gap:8px; line-height:1.5; }
+.phase-items li::before { content:'→'; color:rgba(43,159,232,0.4); font-family:'DM Mono',monospace; font-size:10px; flex-shrink:0; }
 
 /* ENGAGEMENT MODEL */
 .model { background:var(--black2); border-top:1px solid var(--border-dim); }
@@ -140,33 +140,33 @@ footer { border-top:1px solid var(--border-dim); padding:2.5rem 4rem; display:fl
 .model-items { display:flex; flex-direction:column; gap:1px; background:var(--border-dim); border:1px solid var(--border-dim); }
 .model-item { background:var(--black2); padding:1.75rem 2rem; display:grid; grid-template-columns:auto 1fr; gap:1.5rem; align-items:start; transition:background 0.2s; }
 .model-item:hover { background:var(--black3); }
-.model-step { font-family:'Barlow Condensed',sans-serif; font-weight:800; font-size:48px; color:rgba(200,150,90,0.12); line-height:1; }
+.model-step { font-family:'Barlow Condensed',sans-serif; font-weight:800; font-size:48px; color:rgba(43,159,232,0.07); line-height:1; }
 .model-body { }
 .model-title { font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:20px; text-transform:uppercase; letter-spacing:0.04em; margin-bottom:0.35rem; }
-.model-desc { font-size:13px; color:var(--white-dim); line-height:1.7; }
+.model-desc { font-size:15px; color:var(--white-dim); line-height:1.75; }
 
 /* VS TABLE */
 .vs-section { }
 .vs-table { width:100%; border-collapse:collapse; margin-top:2.5rem; }
 .vs-table th { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:0.14em; text-transform:uppercase; padding:1rem 1.5rem; border-bottom:1px solid var(--border-dim); text-align:left; color:var(--white-hint); }
-.vs-table th.hl-col { color:var(--gold); border-bottom-color:rgba(200,150,90,0.3); }
+.vs-table th.hl-col { color:var(--blue); border-bottom-color:rgba(43,159,232,0.3); }
 .vs-table td { padding:1rem 1.5rem; border-bottom:0.5px solid var(--border-dim); font-size:13px; color:var(--white-dim); vertical-align:middle; }
-.vs-table td.hl-col { color:var(--white); background:rgba(200,150,90,0.04); }
+.vs-table td.hl-col { color:var(--white); background:rgba(43,159,232,0.04); }
 .vs-table tr:last-child td { border-bottom:none; }
-.check { color:var(--gold); font-size:16px; }
+.check { color:var(--blue); font-size:16px; }
 .cross { color:var(--white-hint); opacity:0.4; }
 
 /* CTA */
 .adv-cta { background:var(--black2); border-top:1px solid var(--border-dim); }
 .adv-cta-inner { display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:center; }
 .adv-cta-text h2 { font-family:'Barlow Condensed',sans-serif; font-weight:800; font-size:clamp(36px,5vw,60px); text-transform:uppercase; line-height:1; margin-bottom:1rem; }
-.adv-cta-text h2 span { color:var(--gold); }
+.adv-cta-text h2 span { color:var(--blue); }
 .adv-cta-text p { font-size:15px; color:var(--white-dim); line-height:1.75; }
 .adv-cta-form { background:var(--black3); border:1px solid var(--border-dim); border-radius:2px; padding:2.5rem; }
 .form-group { margin-bottom:1.25rem; }
 .form-label { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:0.14em; text-transform:uppercase; color:var(--white-hint); display:block; margin-bottom:0.5rem; }
 .form-input { width:100%; background:var(--black2); border:1px solid var(--border-dim); border-radius:2px; padding:12px 16px; color:var(--white); font-family:'Barlow',sans-serif; font-size:14px; outline:none; transition:border-color 0.2s; }
-.form-input:focus { border-color:var(--gold); }
+.form-input:focus { border-color:var(--blue); }
 .form-input::placeholder { color:var(--white-hint); }
 
 @media (max-width:900px) {
@@ -215,13 +215,13 @@ footer { border-top:1px solid var(--border-dim); padding:2.5rem 4rem; display:fl
   <div class="adv-hero-content">
     <div class="adv-eyebrow">RASOR Advisory</div>
     <h1 class="adv-headline">
-      <span class="line-gold">Your Trust Program</span><br>
-      <span>Should Close</span><br>
-      <span class="line-outline">Deals. Not Block Them.</span>
+      <span class="line-blue">Your Trust Program</span><br>
+      <span style="white-space:nowrap;">Should Close More Deals.</span><br>
+      <span class="line-outline" style="white-space:nowrap;">Not Block Them.</span>
     </h1>
     <p class="adv-sub">We build and manage <strong>Customer Trust and Third Party Risk programs</strong> for growth-stage tech companies — so enterprise deals move faster and your product team stops waiting on vendor approvals.</p>
     <div class="adv-actions">
-      <a href="#contact" class="btn-gold">Book a Strategy Call</a>
+      <a href="#contact" class="btn-primary">Book a Strategy Call</a>
       <a href="#programs" class="btn-secondary">See the Programs</a>
     </div>
   </div>
@@ -229,8 +229,8 @@ footer { border-top:1px solid var(--border-dim); padding:2.5rem 4rem; display:fl
 
 <section class="diff">
   <div class="inner">
-    <div class="section-label gold">Why RASOR Advisory</div>
-    <h2 class="section-title">Not a Big Four. <span class="accent-gold">Not a vCISO.</span></h2>
+    <div class="section-label">Why RASOR Advisory</div>
+    <h2 class="section-title">Not a Big Four. <span class="accent">Not a vCISO.</span></h2>
     <div class="diff-grid">
       <div class="diff-block">
         <div class="diff-num">01 —</div>
@@ -253,8 +253,8 @@ footer { border-top:1px solid var(--border-dim); padding:2.5rem 4rem; display:fl
 
 <section id="programs">
   <div class="inner">
-    <div class="section-label gold">The Programs</div>
-    <h2 class="section-title">Two Programs. <span class="accent-gold">One Revenue Engine.</span></h2>
+    <div class="section-label">The Programs</div>
+    <h2 class="section-title">Two Programs. <span class="accent">One Revenue Engine.</span></h2>
     <div class="programs-grid">
 
       <div class="program-card">
@@ -285,7 +285,7 @@ footer { border-top:1px solid var(--border-dim); padding:2.5rem 4rem; display:fl
             </ul>
           </div>
         </div>
-        <a href="#contact" class="btn-gold">Inquire About This Program</a>
+        <a href="#contact" class="btn-primary">Inquire About This Program</a>
       </div>
 
       <div class="program-card">
@@ -316,7 +316,7 @@ footer { border-top:1px solid var(--border-dim); padding:2.5rem 4rem; display:fl
             </ul>
           </div>
         </div>
-        <a href="#contact" class="btn-gold">Inquire About This Program</a>
+        <a href="#contact" class="btn-primary">Inquire About This Program</a>
       </div>
 
     </div>
@@ -325,8 +325,8 @@ footer { border-top:1px solid var(--border-dim); padding:2.5rem 4rem; display:fl
 
 <section class="model">
   <div class="inner">
-    <div class="section-label gold">How It Works</div>
-    <h2 class="section-title">The RASOR <span class="accent-gold">Engagement Model.</span></h2>
+    <div class="section-label">How It Works</div>
+    <h2 class="section-title">The RASOR <span class="accent">Engagement Model.</span></h2>
     <div class="model-row" style="margin-top:2.5rem;">
       <div class="model-label-col">
         <p style="font-size:14px;color:var(--white-dim);line-height:1.75;">We lead every engagement at the architecture level. Our trained Fellows handle day-to-day operations. You get senior-level thinking without the overhead.</p>
@@ -367,8 +367,8 @@ footer { border-top:1px solid var(--border-dim); padding:2.5rem 4rem; display:fl
 
 <section class="vs-section">
   <div class="inner">
-    <div class="section-label gold">The Comparison</div>
-    <h2 class="section-title">RASOR vs <span class="accent-gold">The Alternatives.</span></h2>
+    <div class="section-label">The Comparison</div>
+    <h2 class="section-title">RASOR vs <span class="accent">The Alternatives.</span></h2>
     <table class="vs-table">
       <thead>
         <tr>
@@ -424,13 +424,13 @@ footer { border-top:1px solid var(--border-dim); padding:2.5rem 4rem; display:fl
   <div class="inner">
     <div class="adv-cta-inner">
       <div class="adv-cta-text">
-        <div class="section-label gold">Book a Call</div>
+        <div class="section-label">Book a Call</div>
         <h2>Let's Talk About <span>Your Program.</span></h2>
         <p style="margin-top:1rem;">30 minutes. We'll identify exactly where your trust or risk program is costing you — and whether RASOR Advisory is the right fit to fix it.</p>
         <div style="margin-top:2rem;display:flex;flex-direction:column;gap:0.75rem;">
-          <div style="font-size:13px;color:var(--white-dim);display:flex;gap:10px;align-items:center;"><span style="color:var(--gold);font-family:'DM Mono',monospace;font-size:10px;">→</span> No pitch. Just a real conversation.</div>
-          <div style="font-size:13px;color:var(--white-dim);display:flex;gap:10px;align-items:center;"><span style="color:var(--gold);font-family:'DM Mono',monospace;font-size:10px;">→</span> We'll tell you honestly if we're not the right fit.</div>
-          <div style="font-size:13px;color:var(--white-dim);display:flex;gap:10px;align-items:center;"><span style="color:var(--gold);font-family:'DM Mono',monospace;font-size:10px;">→</span> You'll leave with clarity either way.</div>
+          <div style="font-size:13px;color:var(--white-dim);display:flex;gap:10px;align-items:center;"><span style="color:var(--blue);font-family:'DM Mono',monospace;font-size:10px;">→</span> No pitch. Just a real conversation.</div>
+          <div style="font-size:13px;color:var(--white-dim);display:flex;gap:10px;align-items:center;"><span style="color:var(--blue);font-family:'DM Mono',monospace;font-size:10px;">→</span> We'll tell you honestly if we're not the right fit.</div>
+          <div style="font-size:13px;color:var(--white-dim);display:flex;gap:10px;align-items:center;"><span style="color:var(--blue);font-family:'DM Mono',monospace;font-size:10px;">→</span> You'll leave with clarity either way.</div>
         </div>
       </div>
       <div class="adv-cta-form">
@@ -450,7 +450,7 @@ footer { border-top:1px solid var(--border-dim); padding:2.5rem 4rem; display:fl
           <label class="form-label">What's the main challenge?</label>
           <textarea class="form-input" rows="3" placeholder="e.g. SOC 2 stalled, losing deals, no TPRM process..."></textarea>
         </div>
-        <button class="btn-gold" style="width:100%;text-align:center;">Request Strategy Call</button>
+        <button class="btn-primary" style="width:100%;text-align:center;">Request Strategy Call</button>
       </div>
     </div>
   </div>
