@@ -129,6 +129,26 @@ footer { border-top:1px solid var(--border-dim); padding:2.5rem 4rem; display:fl
 .phase-title { font-size:13px; font-weight:500; margin-bottom:0.25rem; }
 .phase-price { font-family:'DM Mono',monospace; font-size:18px; color:var(--blue); }
 .phase-price span { font-size:10px; color:var(--white-hint); }
+.phase-price-label { font-family:'DM Mono',monospace; font-size:13px; color:var(--blue); margin-bottom:0.5rem; }
+.phase-price-label span { font-size:10px; color:var(--white-hint); letter-spacing:0.08em; }
+
+/* WORKSHOPS */
+.workshops-adv { background:var(--black2); border-top:1px solid var(--border-dim); border-bottom:1px solid var(--border-dim); }
+.wk-adv-grid { display:flex; flex-direction:column; gap:1px; background:var(--border-dim); border:1px solid var(--border-dim); margin-top:2.5rem; }
+.wk-adv-row { background:var(--black2); display:grid; grid-template-columns:1fr auto; align-items:center; gap:1.5rem; padding:1.75rem 2rem; transition:background 0.2s; cursor:pointer; }
+.wk-adv-row:hover { background:var(--black3); }
+.wk-adv-row:hover .wk-adv-arrow { transform:translateX(6px); }
+.wk-adv-name { font-family:'Barlow Condensed',sans-serif; font-weight:600; font-size:21px; text-transform:uppercase; letter-spacing:0.04em; margin-bottom:0.4rem; line-height:1.2; }
+.wk-adv-desc { font-size:14px; color:var(--white-dim); line-height:1.65; margin-bottom:0.6rem; }
+.wk-adv-tags { display:flex; gap:6px; flex-wrap:wrap; }
+.wk-adv-tag { font-family:'DM Mono',monospace; font-size:10px; padding:3px 10px; border-radius:1px; border:1px solid var(--border-dim); color:var(--white-hint); white-space:nowrap; }
+.wk-adv-tag.featured { border-color:var(--border); color:var(--blue); background:var(--blue-glow2); }
+.wk-adv-arrow { font-size:18px; color:var(--blue-dim); transition:transform 0.2s; flex-shrink:0; }
+
+@media (max-width:900px) {
+  .wk-adv-row { padding:1.25rem; gap:0.75rem; }
+  .wk-adv-name { font-size:17px; }
+}
 .phase-items { list-style:none; margin-top:0.5rem; display:flex; flex-direction:column; gap:4px; }
 .phase-items li { font-size:14px; color:var(--white-hint); display:flex; gap:8px; line-height:1.5; }
 .phase-items li::before { content:'→'; color:rgba(43,159,232,0.4); font-family:'DM Mono',monospace; font-size:10px; flex-shrink:0; }
@@ -264,7 +284,7 @@ footer { border-top:1px solid var(--border-dim); padding:2.5rem 4rem; display:fl
         <div class="program-phases">
           <div class="phase">
             <div class="phase-label">Phase 01 · Build</div>
-            <div class="phase-price">$15k–$25k<span> · one-time project fee</span></div>
+            <div class="phase-price-label">Scoped to your program<span> · book a call to discuss</span></div>
             <ul class="phase-items">
               <li>SOC 2 readiness and completion (using your existing tool)</li>
               <li>Trust page and security documentation</li>
@@ -274,8 +294,8 @@ footer { border-top:1px solid var(--border-dim); padding:2.5rem 4rem; display:fl
             </ul>
           </div>
           <div class="phase">
-            <div class="phase-label">Phase 02 · Manage</div>
-            <div class="phase-price">$5k<span>/month retainer</span></div>
+            <div class="phase-label">Phase 02 · Ongoing Support</div>
+            <div class="phase-price-label">Continuous program oversight<span> · inquire for details</span></div>
             <ul class="phase-items">
               <li>Questionnaire management — 24hr turnaround target</li>
               <li>SOC 2 renewal oversight and coordination</li>
@@ -295,7 +315,7 @@ footer { border-top:1px solid var(--border-dim); padding:2.5rem 4rem; display:fl
         <div class="program-phases">
           <div class="phase">
             <div class="phase-label">Phase 01 · Build</div>
-            <div class="phase-price">$15k–$25k<span> · one-time project fee</span></div>
+            <div class="phase-price-label">Scoped to your program<span> · book a call to discuss</span></div>
             <ul class="phase-items">
               <li>Vendor risk tier framework and classification model</li>
               <li>Assessment questionnaire library by vendor category</li>
@@ -305,8 +325,8 @@ footer { border-top:1px solid var(--border-dim); padding:2.5rem 4rem; display:fl
             </ul>
           </div>
           <div class="phase">
-            <div class="phase-label">Phase 02 · Manage</div>
-            <div class="phase-price">$5k<span>/month retainer</span></div>
+            <div class="phase-label">Phase 02 · Ongoing Support</div>
+            <div class="phase-price-label">Continuous program oversight<span> · inquire for details</span></div>
             <ul class="phase-items">
               <li>New vendor assessment and approval oversight</li>
               <li>Annual vendor re-assessment coordination</li>
@@ -356,11 +376,61 @@ footer { border-top:1px solid var(--border-dim); padding:2.5rem 4rem; display:fl
         <div class="model-item">
           <div class="model-step">04</div>
           <div class="model-body">
-            <div class="model-title">Manage &amp; Optimize</div>
-            <div class="model-desc">$5k/month retainer. We manage ongoing operations, questionnaire flow, renewals, and reporting — with the option to place a RASOR Fellow full-time when you're ready to bring it in-house.</div>
+            <div class="model-title">Ongoing Partnership</div>
+            <div class="model-desc">Once the program is live we stay engaged — managing operations, questionnaire flow, renewals, and reporting. When you're ready to bring it fully in-house, we place a trained RASOR Fellow to run it day to day.</div>
           </div>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<section class="workshops-adv" id="workshops">
+  <div class="inner">
+    <div class="section-label">Entry Points</div>
+    <h2 class="section-title">Start with a <span class="accent">Workshop.</span></h2>
+    <p style="font-size:15px;color:var(--white-dim);line-height:1.75;max-width:600px;margin-bottom:0;">Not ready for a full program build? Every advisory engagement starts with a conversation — and workshops are the fastest way to surface what's actually broken inside your organization. Most fractional engagements begin here.</p>
+    <div class="wk-adv-grid">
+      <div class="wk-adv-row">
+        <div>
+          <div class="wk-adv-name">Why Your Security Program Is Underperforming</div>
+          <div class="wk-adv-desc">Diagnoses the human and organizational failure modes killing your compliance program — ownership gaps, communication breakdown, decision bottlenecks. Designed for security leaders who are tired of starting over every audit cycle.</div>
+          <div class="wk-adv-tags">
+            <span class="wk-adv-tag featured">Most Popular</span>
+            <span class="wk-adv-tag">3 hrs</span>
+            <span class="wk-adv-tag">Security Leaders</span>
+            <span class="wk-adv-tag">Virtual or On-site</span>
+          </div>
+        </div>
+        <div class="wk-adv-arrow">→</div>
+      </div>
+      <div class="wk-adv-row">
+        <div>
+          <div class="wk-adv-name">Building a Security Culture That Doesn't Require You to Beg</div>
+          <div class="wk-adv-desc">For security leaders struggling with cross-functional buy-in. Covers incentive design, executive communication, and how to build accountability without antagonism. Particularly effective pre-audit or after a failed audit cycle.</div>
+          <div class="wk-adv-tags">
+            <span class="wk-adv-tag">2.5 hrs</span>
+            <span class="wk-adv-tag">Cross-functional Teams</span>
+            <span class="wk-adv-tag">Virtual</span>
+          </div>
+        </div>
+        <div class="wk-adv-arrow">→</div>
+      </div>
+      <div class="wk-adv-row">
+        <div>
+          <div class="wk-adv-name">From Manual Compliance to Self-Running Security Operations</div>
+          <div class="wk-adv-desc">The technical counterpart. Process mapping, automation architecture, evidence collection systems, and control monitoring — for GRC and security teams drowning in manual work. A natural lead-in to a full program build.</div>
+          <div class="wk-adv-tags">
+            <span class="wk-adv-tag">3 hrs</span>
+            <span class="wk-adv-tag">GRC &amp; Security Engineers</span>
+            <span class="wk-adv-tag">Technical Audience</span>
+          </div>
+        </div>
+        <div class="wk-adv-arrow">→</div>
+      </div>
+    </div>
+    <div style="margin-top:1.5rem;">
+      <a href="#contact" class="btn-primary">Inquire About a Workshop</a>
     </div>
   </div>
 </section>
