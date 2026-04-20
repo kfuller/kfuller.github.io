@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RASOR Center Community — Customer Trust & TPRM Careers</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;500;600;700;800&family=Barlow:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --black: #080808; --black2: #0E0E0F; --black3: #141416; --black4: #1A1A1C;
+  --blue: #2B9FE8; --blue-bright: #45B8FF; --blue-dim: #1A6FA8;
+  --blue-glow: rgba(43,159,232,0.15); --blue-glow2: rgba(43,159,232,0.06);
+  --white: #F0F0F0; --white-dim: #A0A8B0; --white-hint: #505860;
+  --border: rgba(43,159,232,0.2); --border-dim: rgba(255,255,255,0.07);
+  --gold: #C8965A; --gold-dim: rgba(200,150,90,0.15);
+}
+html { scroll-behavior: smooth; }
+body { background: var(--black); color: var(--white); font-family: 'Barlow', sans-serif; font-weight: 300; overflow-x: hidden; }
+body::before { content:''; position:fixed; inset:0; background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E"); pointer-events:none; z-index:0; opacity:0.4; }
+
+/* ── NAV ── */
+nav { position:fixed; top:0; left:0; right:0; z-index:1000; display:flex; align-items:center; justify-content:space-between; padding:1rem 3rem; background:rgba(8,8,8,0.9); backdrop-filter:blur(16px); border-bottom:1px solid var(--border-dim); }
+.nav-logo { display:flex; align-items:center; gap:12px; text-decoration:none; flex-shrink:0; }
+.nav-wordmark { display:flex; flex-direction:column; line-height:1; }
+.nav-wordmark-top { font-family:'Barlow Condensed',sans-serif; font-weight:800; font-size:18px; letter-spacing:0.12em; color:var(--white); text-transform:uppercase; }
+.nav-wordmark-sub { font-family:'DM Mono',monospace; font-size:8px; letter-spacing:0.18em; color:var(--blue); text-transform:uppercase; margin-top:3px; }
+.nav-links { display:flex; align-items:center; gap:2rem; list-style:none; }
+.nav-links a { font-family:'DM Mono',monospace; font-size:11px; letter-spacing:0.12em; text-transform:uppercase; color:var(--white-dim); text-decoration:none; transition:color 0.2s; white-space:nowrap; }
+.nav-links a:hover, .nav-links a.active { color:var(--blue-bright); }
+.nav-cta { color:var(--blue-bright) !important; border:1px solid var(--border) !important; padding:8px 20px; border-radius:2px; transition:background 0.2s,color 0.2s !important; }
+.nav-cta:hover { background:var(--blue-glow) !important; color:var(--white) !important; }
+.hamburger { display:none; flex-direction:column; gap:5px; cursor:pointer; padding:4px; background:none; border:none; }
+.hamburger span { display:block; width:24px; height:1.5px; background:var(--white-dim); transition:all 0.3s; }
+.hamburger.open span:nth-child(1) { transform:translateY(6.5px) rotate(45deg); }
+.hamburger.open span:nth-child(2) { opacity:0; }
+.hamburger.open span:nth-child(3) { transform:translateY(-6.5px) rotate(-45deg); }
+.mobile-menu { display:none; position:fixed; top:0; left:0; right:0; bottom:0; z-index:999; background:rgba(8,8,8,0.98); flex-direction:column; align-items:center; justify-content:center; gap:2rem; }
+.mobile-menu.open { display:flex; }
+.mobile-menu a { font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:36px; letter-spacing:0.08em; text-transform:uppercase; color:var(--white-dim); text-decoration:none; transition:color 0.2s; }
+.mobile-menu a:hover { color:var(--blue-bright); }
+.mobile-menu .mob-cta { color:var(--blue-bright) !important; border:1px solid var(--border); padding:12px 32px; border-radius:2px; font-size:14px; font-family:'DM Mono',monospace; letter-spacing:0.1em; margin-top:1rem; }
+
+/* ── BUTTONS ── */
+.btn-primary { font-family:'DM Mono',monospace; font-size:12px; letter-spacing:0.1em; text-transform:uppercase; color:var(--black); background:var(--blue-bright); border:none; padding:14px 32px; border-radius:2px; cursor:pointer; text-decoration:none; transition:background 0.2s,transform 0.15s; display:inline-block; }
+.btn-primary:hover { background:#fff; transform:translateY(-1px); }
+.btn-secondary { font-family:'DM Mono',monospace; font-size:12px; letter-spacing:0.1em; text-transform:uppercase; color:var(--white-dim); background:transparent; border:1px solid var(--border); padding:14px 32px; border-radius:2px; cursor:pointer; text-decoration:none; transition:border-color 0.2s,color 0.2s,transform 0.15s; display:inline-block; }
+.btn-secondary:hover { border-color:var(--blue); color:var(--white); transform:translateY(-1px); }
+.btn-gold { font-family:'DM Mono',monospace; font-size:12px; letter-spacing:0.1em; text-transform:uppercase; color:var(--black); background:var(--gold); border:none; padding:14px 32px; border-radius:2px; cursor:pointer; text-decoration:none; transition:background 0.2s,transform 0.15s; display:inline-block; }
+.btn-gold:hover { background:#e0aa6a; transform:translateY(-1px); }
+
+/* ── SECTION BASE ── */
+section { position:relative; z-index:1; padding:6rem 4rem; }
+.section-label { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:0.2em; text-transform:uppercase; color:var(--blue); margin-bottom:0.75rem; display:flex; align-items:center; gap:10px; }
+.section-label::before { content:''; display:block; width:20px; height:1px; background:var(--blue); }
+.section-label.gold { color:var(--gold); }
+.section-label.gold::before { background:var(--gold); }
+.section-title { font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:clamp(32px,5vw,56px); text-transform:uppercase; letter-spacing:0.02em; line-height:1; margin-bottom:1.5rem; }
+.section-title .accent { color:var(--blue-bright); }
+.section-title .accent-gold { color:var(--gold); }
+.inner { max-width:1100px; margin:0 auto; }
+
+/* ── FOOTER ── */
+footer { border-top:1px solid var(--border-dim); padding:2.5rem 4rem; display:flex; align-items:center; justify-content:space-between; position:relative; z-index:1; }
+.footer-left { display:flex; align-items:center; gap:12px; }
+.footer-brand { display:flex; flex-direction:column; }
+.footer-wordmark { font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:18px; letter-spacing:0.12em; text-transform:uppercase; }
+.footer-sub { font-family:'DM Mono',monospace; font-size:9px; letter-spacing:0.15em; color:var(--blue); text-transform:uppercase; margin-top:3px; }
+.footer-links { display:flex; gap:2rem; }
+.footer-links a { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:0.12em; text-transform:uppercase; color:var(--white-hint); text-decoration:none; transition:color 0.2s; }
+.footer-links a:hover { color:var(--blue); }
+.footer-copy { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:0.1em; color:var(--white-hint); }
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp { from{opacity:0;transform:translateY(24px)} to{opacity:1;transform:translateY(0)} }
+@keyframes fadeIn { from{opacity:0} to{opacity:1} }
+@keyframes scrollSlide { 0%{left:-100%} 50%{left:100%} 100%{left:100%} }
+@keyframes pulse { 0%,100%{opacity:0.6} 50%{opacity:1} }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  nav { padding:1rem 1.25rem; }
+  nav .nav-links { display:none; }
+  .hamburger { display:flex; }
+  section { padding:4rem 1.25rem; }
+  footer { flex-direction:column; gap:1.5rem; align-items:flex-start; padding:2rem 1.25rem; }
+  .footer-links { flex-wrap:wrap; gap:1rem; }
+}
+
+
+/* HERO */
+.com-hero { position:relative; min-height:85vh; display:flex; flex-direction:column; justify-content:center; padding:9rem 4rem 6rem; overflow:hidden; }
+.com-hero-bg { position:absolute; inset:0; z-index:0; }
+.com-hero-bg::before { content:''; position:absolute; inset:0; background-image:linear-gradient(rgba(43,159,232,0.05) 1px,transparent 1px),linear-gradient(90deg,rgba(43,159,232,0.05) 1px,transparent 1px); background-size:50px 50px; mask-image:radial-gradient(ellipse 80% 80% at 30% 50%,black 30%,transparent 100%); }
+.com-hero-bg::after { content:''; position:absolute; top:-10%; right:-15%; width:65vw; height:65vw; background:radial-gradient(ellipse,rgba(43,159,232,0.09) 0%,transparent 65%); pointer-events:none; }
+.com-hero-content { position:relative; z-index:1; max-width:1000px; }
+.com-eyebrow { font-family:'DM Mono',monospace; font-size:11px; letter-spacing:0.2em; text-transform:uppercase; color:var(--blue); margin-bottom:1.5rem; display:flex; align-items:center; gap:12px; opacity:0; animation:fadeUp 0.8s ease forwards 0.2s; }
+.com-eyebrow::before { content:''; display:block; width:32px; height:1px; background:var(--blue); }
+.com-headline { font-family:'Barlow Condensed',sans-serif; font-weight:800; font-size:clamp(44px,7.5vw,100px); line-height:0.92; letter-spacing:-0.01em; text-transform:uppercase; margin-bottom:2rem; opacity:0; animation:fadeUp 0.8s ease forwards 0.4s; }
+.com-headline .line-blue { color:var(--blue-bright); }
+.com-headline .line-outline { -webkit-text-stroke:1px rgba(255,255,255,0.25); color:transparent; }
+.com-sub { font-size:17px; font-weight:300; color:var(--white-dim); line-height:1.75; max-width:560px; margin-bottom:2rem; opacity:0; animation:fadeUp 0.8s ease forwards 0.6s; }
+.com-sub strong { color:var(--white); font-weight:400; }
+.com-price-pill { display:inline-flex; align-items:center; gap:10px; background:var(--blue-glow2); border:1px solid var(--border); border-radius:2px; padding:8px 16px; margin-bottom:2rem; opacity:0; animation:fadeUp 0.8s ease forwards 0.7s; }
+.pill-price { font-family:'DM Mono',monospace; font-size:20px; font-weight:500; color:var(--blue-bright); }
+.pill-label { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:0.12em; text-transform:uppercase; color:var(--white-hint); }
+.com-actions { display:flex; gap:1rem; flex-wrap:wrap; opacity:0; animation:fadeUp 0.8s ease forwards 0.8s; }
+
+/* FOR WHO */
+.for-who { background:var(--black2); border-top:1px solid var(--border-dim); border-bottom:1px solid var(--border-dim); }
+.icp-grid { display:grid; grid-template-columns:1fr 1fr; gap:1.5rem; margin-top:2.5rem; }
+.icp-card { background:var(--black3); border:1px solid var(--border-dim); border-radius:2px; padding:2rem; }
+.icp-icon { font-family:'DM Mono',monospace; font-size:9px; letter-spacing:0.18em; text-transform:uppercase; color:var(--blue); background:var(--blue-glow2); border:1px solid rgba(43,159,232,0.2); padding:4px 12px; border-radius:1px; display:inline-block; margin-bottom:1rem; }
+.icp-title { font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:22px; text-transform:uppercase; letter-spacing:0.04em; margin-bottom:0.6rem; }
+.icp-desc { font-size:13px; color:var(--white-dim); line-height:1.75; margin-bottom:1.25rem; }
+.icp-traits { display:flex; flex-direction:column; gap:5px; }
+.icp-trait { font-family:'DM Mono',monospace; font-size:11px; color:var(--white-hint); display:flex; gap:8px; align-items:flex-start; line-height:1.5; }
+.icp-trait::before { content:'//'; color:var(--blue-dim); flex-shrink:0; }
+
+/* COURSES */
+.course-grid { display:flex; flex-direction:column; gap:1px; background:var(--border-dim); border:1px solid var(--border-dim); margin-top:2.5rem; }
+.track-header { background:var(--black2); padding:1rem 1.5rem; display:flex; align-items:center; gap:1rem; }
+.track-label { font-family:'DM Mono',monospace; font-size:9px; letter-spacing:0.18em; text-transform:uppercase; color:var(--blue); background:var(--blue-glow2); border:1px solid rgba(43,159,232,0.2); padding:3px 10px; border-radius:1px; }
+.track-name { font-family:'Barlow Condensed',sans-serif; font-weight:600; font-size:16px; text-transform:uppercase; letter-spacing:0.08em; color:var(--white-dim); }
+.course-row { background:var(--black); display:grid; grid-template-columns:1fr auto; align-items:center; gap:1.5rem; padding:1.5rem 2rem; transition:background 0.2s; cursor:pointer; border-top:0.5px solid var(--border-dim); }
+.course-row:hover { background:var(--black3); }
+.course-row:hover .course-arrow { transform:translateX(5px); }
+.course-num { font-family:'DM Mono',monospace; font-size:10px; color:var(--blue-dim); margin-bottom:0.25rem; }
+.course-title { font-family:'Barlow Condensed',sans-serif; font-weight:600; font-size:19px; text-transform:uppercase; letter-spacing:0.04em; margin-bottom:0.35rem; line-height:1.2; }
+.course-desc { font-size:12px; color:var(--white-hint); line-height:1.6; }
+.course-tags { display:flex; gap:6px; margin-top:0.5rem; flex-wrap:wrap; }
+.ctag { font-family:'DM Mono',monospace; font-size:9px; padding:2px 8px; border-radius:1px; border:1px solid var(--border-dim); color:var(--white-hint); }
+.ctag.featured { border-color:var(--border); color:var(--blue); background:var(--blue-glow2); }
+.course-arrow { font-size:16px; color:var(--blue-dim); transition:transform 0.2s; flex-shrink:0; }
+
+/* MEMBERSHIP */
+.membership { background:var(--black2); border-top:1px solid var(--border-dim); }
+.membership-inner { display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:start; }
+.membership-features { display:flex; flex-direction:column; gap:1px; background:var(--border-dim); border:1px solid var(--border-dim); margin-top:1.5rem; }
+.feature-row { background:var(--black2); padding:1.25rem 1.5rem; display:flex; gap:1rem; align-items:flex-start; transition:background 0.2s; }
+.feature-row:hover { background:var(--black3); }
+.feature-icon { width:28px; height:28px; background:var(--blue-glow2); border:1px solid var(--border); border-radius:2px; display:flex; align-items:center; justify-content:center; flex-shrink:0; font-family:'DM Mono',monospace; font-size:11px; color:var(--blue); }
+.feature-body { }
+.feature-title { font-size:14px; font-weight:500; margin-bottom:0.2rem; }
+.feature-desc { font-size:12px; color:var(--white-hint); line-height:1.6; }
+.membership-cta { background:var(--black3); border:1px solid var(--border-dim); border-radius:2px; padding:2.5rem; position:sticky; top:8rem; }
+.mem-price { font-family:'DM Mono',monospace; font-size:42px; color:var(--blue-bright); line-height:1; margin-bottom:0.25rem; }
+.mem-price-sub { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:0.14em; text-transform:uppercase; color:var(--blue); margin-bottom:1.5rem; }
+.mem-divider { height:1px; background:var(--border-dim); margin:1.5rem 0; }
+.mem-note { font-size:12px; color:var(--white-hint); line-height:1.6; margin-bottom:1.5rem; }
+
+/* PLACEMENT */
+.placement { border-top:1px solid var(--border-dim); }
+.placement-inner { display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:center; }
+.placement-text { }
+.placement-visual { background:var(--black3); border:1px solid var(--border-dim); border-radius:2px; padding:2.5rem; }
+.flow-step { display:flex; gap:1rem; align-items:flex-start; margin-bottom:1.25rem; position:relative; }
+.flow-step:not(:last-child)::after { content:''; position:absolute; left:13px; top:28px; bottom:-1.25rem; width:1px; background:var(--border-dim); }
+.flow-num { width:26px; height:26px; background:var(--blue-glow2); border:1px solid var(--border); border-radius:50%; display:flex; align-items:center; justify-content:center; flex-shrink:0; font-family:'DM Mono',monospace; font-size:10px; color:var(--blue); }
+.flow-body { }
+.flow-title { font-size:13px; font-weight:500; margin-bottom:0.2rem; }
+.flow-desc { font-size:12px; color:var(--white-hint); line-height:1.6; }
+
+@media (max-width:900px) {
+  .com-hero { padding:6rem 1.25rem 4rem; }
+  .icp-grid { grid-template-columns:1fr; }
+  .membership-inner { grid-template-columns:1fr; gap:2.5rem; }
+  .membership-cta { position:static; }
+  .placement-inner { grid-template-columns:1fr; gap:2.5rem; }
+  .course-row { padding:1.25rem; }
+  .course-title { font-size:16px; }
+}
+
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">
+    <img src="data:image/jpeg;base64,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" class="logo-icon" alt="RASOR Center Logo" style="width:38px;height:38px;border-radius:4px;object-fit:cover;">
+    <div class="nav-wordmark">
+      <span class="nav-wordmark-top">RASOR Center</span>
+      <span class="nav-wordmark-sub">Risk &amp; Security Operations Research</span>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html" >Home</a></li>
+    <li><a href="community.html" class='active'>Community</a></li>
+    <li><a href="advisory.html" >Advisory</a></li>
+    <li><a href="community.html#cta" class="nav-cta">Get Started</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html" onclick="toggleMenu()">Home</a>
+  <a href="community.html" onclick="toggleMenu()">Community</a>
+  <a href="advisory.html" onclick="toggleMenu()">Advisory</a>
+  <a href="community.html#cta" class="mob-cta" onclick="toggleMenu()">Join the Lab</a>
+</div>
+
+
+<section class="com-hero">
+  <div class="com-hero-bg"></div>
+  <div class="com-hero-content">
+    <div class="com-eyebrow">RASOR Center · Community</div>
+    <h1 class="com-headline">
+      <span class="line-blue">The Career You Want</span><br>
+      <span>Requires Skills</span><br>
+      <span class="line-outline">Nobody Teaches.</span>
+    </h1>
+    <p class="com-sub">RASOR Center is an application-only performance community for security professionals building careers in <strong>Customer Trust, TPRM, and AI Trust</strong> — the disciplines that sit directly on the revenue side of security.</p>
+    <div class="com-price-pill">
+      <span class="pill-price">$49</span>
+      <span class="pill-label">/month · Application Only</span>
+    </div>
+    <div class="com-actions">
+      <a href="#apply" class="btn-primary">Apply for Membership</a>
+      <a href="#courses" class="btn-secondary">See the Curriculum</a>
+    </div>
+  </div>
+</section>
+
+<section class="for-who">
+  <div class="inner">
+    <div class="section-label">Who This Is For</div>
+    <h2 class="section-title">Are You <span class="accent">The One?</span></h2>
+    <div class="icp-grid">
+      <div class="icp-card">
+        <span class="icp-icon">The Professional</span>
+        <div class="icp-title">Technically Sharp. Career Stuck.</div>
+        <p class="icp-desc">You're good at your job. You have the certs, the skills, the work ethic. But you're being outpaced by people who aren't smarter than you — they just know how to operate at a higher level. That's the gap RASOR closes.</p>
+        <div class="icp-traits">
+          <span class="icp-trait">3–10 years in GRC, Security Engineering, Vulnerability Management, or Incident Response</span>
+          <span class="icp-trait">Wants to move into Customer Trust or TPRM — or get better at both</span>
+          <span class="icp-trait">Technically strong but wants to develop communication and leadership</span>
+          <span class="icp-trait">Interested in AI Trust as a career accelerator</span>
+          <span class="icp-trait">Open to a better role when the right opportunity appears</span>
+        </div>
+      </div>
+      <div class="icp-card">
+        <span class="icp-icon">The Mover</span>
+        <div class="icp-title">Ready for the Next Level.</div>
+        <p class="icp-desc">You've hit the ceiling at your current company or you want to build income outside of your 9-to-5. You need a network, a personal brand, and a system — not another certification that looks the same as everyone else's.</p>
+        <div class="icp-traits">
+          <span class="icp-trait">Wants a promotion, a salary jump, or a role at a better company</span>
+          <span class="icp-trait">Interested in building a personal brand in security</span>
+          <span class="icp-trait">Looking to monetize expertise through content, consulting, or speaking</span>
+          <span class="icp-trait">Wants a curated peer network — not a generic Discord</span>
+          <span class="icp-trait">Serious about high performance across all areas of life</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="courses">
+  <div class="inner">
+    <div class="section-label">The Curriculum</div>
+    <h2 class="section-title">The RASOR <span class="accent">Performance System.</span></h2>
+    <p style="font-size:14px;color:var(--white-dim);line-height:1.75;max-width:600px;margin-bottom:0;">Eight courses built around one premise: everyone in security is technically capable. The ones who get paid the most understand how to produce outcomes, communicate them, and build a reputation that creates opportunities.</p>
+    <div class="course-grid">
+
+      <div class="track-header">
+        <span class="track-label">Track 01</span>
+        <span class="track-name">Foundation — The Mindset Layer</span>
+      </div>
+      <div class="course-row">
+        <div>
+          <div class="course-num">Course 01</div>
+          <div class="course-title">The Security Professional's Blind Spot</div>
+          <div class="course-desc">Why technical excellence is table stakes — and what the highest-paid security professionals do differently.</div>
+          <div class="course-tags"><span class="ctag featured">Free First Module</span><span class="ctag">Lead Magnet</span><span class="ctag">Mindset</span></div>
+        </div>
+        <div class="course-arrow">→</div>
+      </div>
+      <div class="course-row">
+        <div>
+          <div class="course-num">Course 02</div>
+          <div class="course-title">The High Performance Operating System</div>
+          <div class="course-desc">Physical health, mental clarity, habit formation, and daily structure as career infrastructure — not lifestyle content.</div>
+          <div class="course-tags"><span class="ctag">Performance</span><span class="ctag">Habits</span><span class="ctag">Routine</span></div>
+        </div>
+        <div class="course-arrow">→</div>
+      </div>
+
+      <div class="track-header">
+        <span class="track-label">Track 02</span>
+        <span class="track-name">Core — The Four Pillars</span>
+      </div>
+      <div class="course-row">
+        <div>
+          <div class="course-num">Course 03</div>
+          <div class="course-title">Outcome Engineering</div>
+          <div class="course-desc">How to identify, produce, and communicate outcomes that matter to the business — from subtle wins to organizational KPIs.</div>
+          <div class="course-tags"><span class="ctag">Strategy</span><span class="ctag">KPIs</span><span class="ctag">Visibility</span></div>
+        </div>
+        <div class="course-arrow">→</div>
+      </div>
+      <div class="course-row">
+        <div>
+          <div class="course-num">Course 04</div>
+          <div class="course-title">The Multiplier Mentality</div>
+          <div class="course-desc">How to make other people's lives easier as a deliberate career strategy. The interpersonal intelligence most security professionals are missing.</div>
+          <div class="course-tags"><span class="ctag">Leadership</span><span class="ctag">Relationships</span><span class="ctag">Influence</span></div>
+        </div>
+        <div class="course-arrow">→</div>
+      </div>
+      <div class="course-row">
+        <div>
+          <div class="course-num">Course 05</div>
+          <div class="course-title">Security Communication Mastery</div>
+          <div class="course-desc">How to communicate with executives, peers, and external stakeholders. Risk in business terms. Advocacy in performance reviews. The flagship course.</div>
+          <div class="course-tags"><span class="ctag featured">Flagship</span><span class="ctag">Executive Comms</span><span class="ctag">Negotiation</span></div>
+        </div>
+        <div class="course-arrow">→</div>
+      </div>
+      <div class="course-row">
+        <div>
+          <div class="course-num">Course 06</div>
+          <div class="course-title">Personal Brand &amp; Content for Security Professionals</div>
+          <div class="course-desc">How to build a public presence in cybersecurity and monetize your expertise through content, brand deals, speaking, and consulting.</div>
+          <div class="course-tags"><span class="ctag featured">Built on Real Experience</span><span class="ctag">Content</span><span class="ctag">Monetization</span></div>
+        </div>
+        <div class="course-arrow">→</div>
+      </div>
+
+      <div class="track-header">
+        <span class="track-label">Track 03</span>
+        <span class="track-name">Advanced — Career Acceleration</span>
+      </div>
+      <div class="course-row">
+        <div>
+          <div class="course-num">Course 07</div>
+          <div class="course-title">Unorthodox Career Moves</div>
+          <div class="course-desc">How to achieve a $250k+ salary in security without following the traditional path. Negotiation, role selection, and network as career engine.</div>
+          <div class="course-tags"><span class="ctag">Salary</span><span class="ctag">Negotiation</span><span class="ctag">Career Strategy</span></div>
+        </div>
+        <div class="course-arrow">→</div>
+      </div>
+      <div class="course-row">
+        <div>
+          <div class="course-num">Course 08</div>
+          <div class="course-title">AI Trust &amp; Safety for Security Professionals</div>
+          <div class="course-desc">What enterprise prospects are actually asking about AI. How to build an AI vendor risk framework. How to position yourself as an AI Trust practitioner before the market gets crowded.</div>
+          <div class="course-tags"><span class="ctag featured">Emerging Category</span><span class="ctag">AI Risk</span><span class="ctag">First Mover</span></div>
+        </div>
+        <div class="course-arrow">→</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="membership" id="membership">
+  <div class="inner">
+    <div class="section-label">Membership</div>
+    <h2 class="section-title">Everything You Need. <span class="accent">One Place.</span></h2>
+    <div class="membership-inner">
+      <div>
+        <p style="font-size:14px;color:var(--white-dim);line-height:1.75;margin-bottom:1.5rem;">Your $49/month membership includes the full curriculum plus everything below. This isn't a course platform — it's an operating environment for serious security professionals.</p>
+        <div class="membership-features">
+          <div class="feature-row">
+            <div class="feature-icon">01</div>
+            <div class="feature-body">
+              <div class="feature-title">Full Course Catalogue</div>
+              <div class="feature-desc">All eight courses included. New content added as the curriculum evolves. Individual courses available standalone at $97–$197.</div>
+            </div>
+          </div>
+          <div class="feature-row">
+            <div class="feature-icon">02</div>
+            <div class="feature-body">
+              <div class="feature-title">The Vault</div>
+              <div class="feature-desc">Frameworks, templates, automation systems, communication playbooks, and questionnaire libraries from real Customer Trust and TPRM programs.</div>
+            </div>
+          </div>
+          <div class="feature-row">
+            <div class="feature-icon">03</div>
+            <div class="feature-body">
+              <div class="feature-title">Weekly Live Lab Sessions</div>
+              <div class="feature-desc">Live technical builds, case studies, and Q&amp;A. Every session recorded and added to the vault. Focused on Customer Trust, TPRM, and career performance.</div>
+            </div>
+          </div>
+          <div class="feature-row">
+            <div class="feature-icon">04</div>
+            <div class="feature-body">
+              <div class="feature-title">The RASOR Report</div>
+              <div class="feature-desc">Weekly deep-dives on program performance, AI Trust developments, career strategy, and organizational psychology. Members get the full issue. Free subscribers get the preview.</div>
+            </div>
+          </div>
+          <div class="feature-row">
+            <div class="feature-icon">05</div>
+            <div class="feature-body">
+              <div class="feature-title">Placement Pipeline Access</div>
+              <div class="feature-desc">When a RASOR Advisory client needs a full-time operator, we place vetted Fellows first. Members who are ready to move get priority consideration.</div>
+            </div>
+          </div>
+          <div class="feature-row">
+            <div class="feature-icon">06</div>
+            <div class="feature-body">
+              <div class="feature-title">Curated Peer Network</div>
+              <div class="feature-desc">Application-only keeps the quality high. Every member has been vetted. This is a professional network, not a Discord server.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="membership-cta" id="apply">
+        <div class="mem-price">$49</div>
+        <div class="mem-price-sub">Per month · Application Only</div>
+        <a href="#" class="btn-primary" style="width:100%;text-align:center;display:block;">Apply for Membership</a>
+        <div class="mem-divider"></div>
+        <div class="mem-note">Membership is application-only. We review every application to ensure the community maintains a high quality floor. If you're accepted you'll receive access within 48 hours.</div>
+        <div style="display:flex;flex-direction:column;gap:8px;">
+          <div style="font-size:12px;color:var(--white-hint);display:flex;gap:8px;font-family:'DM Mono',monospace;"><span style="color:var(--blue);">→</span> Full course catalogue included</div>
+          <div style="font-size:12px;color:var(--white-hint);display:flex;gap:8px;font-family:'DM Mono',monospace;"><span style="color:var(--blue);">→</span> Cancel anytime</div>
+          <div style="font-size:12px;color:var(--white-hint);display:flex;gap:8px;font-family:'DM Mono',monospace;"><span style="color:var(--blue);">→</span> Individual courses: $97–$197</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="placement">
+  <div class="inner">
+    <div class="section-label">The Placement Pipeline</div>
+    <h2 class="section-title">Community to <span class="accent">Career.</span></h2>
+    <div class="placement-inner">
+      <div class="placement-text">
+        <p style="font-size:15px;color:var(--white-dim);line-height:1.75;margin-bottom:1.5rem;">RASOR Advisory places trained Fellows into client organizations when they need a full-time operator. This is the pipeline. Members who develop inside the community get first consideration — and both sides already know and trust RASOR.</p>
+        <p style="font-size:14px;color:var(--white-dim);line-height:1.75;margin-bottom:2rem;">Mid-career placements only. We never place entry-level candidates. If you're accepted into RASOR Center and you perform, the career opportunities follow naturally.</p>
+        <a href="#apply" class="btn-primary">Apply for Membership</a>
+      </div>
+      <div class="placement-visual">
+        <div class="section-label" style="margin-bottom:1.5rem;">How the pipeline works</div>
+        <div class="flow-step">
+          <div class="flow-num">1</div>
+          <div class="flow-body">
+            <div class="flow-title">You join RASOR Center</div>
+            <div class="flow-desc">Application reviewed. Accepted members get full access to curriculum, vault, and community.</div>
+          </div>
+        </div>
+        <div class="flow-step">
+          <div class="flow-num">2</div>
+          <div class="flow-body">
+            <div class="flow-title">You develop inside the community</div>
+            <div class="flow-desc">Courses, live sessions, coaching. You become a specialist in Customer Trust, TPRM, or AI Trust — or all three.</div>
+          </div>
+        </div>
+        <div class="flow-step">
+          <div class="flow-num">3</div>
+          <div class="flow-body">
+            <div class="flow-title">RASOR Advisory builds a program at a client</div>
+            <div class="flow-desc">When a client needs an operator to run the program day-to-day, we look to the community first.</div>
+          </div>
+        </div>
+        <div class="flow-step">
+          <div class="flow-num">4</div>
+          <div class="flow-body">
+            <div class="flow-title">You get placed — warm, not cold</div>
+            <div class="flow-desc">The client already trusts RASOR. You already know the methodology. Nothing starts from zero.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<footer>
+  <div class="footer-left">
+    <img src="data:image/jpeg;base64,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" alt="RASOR Center Logo" style="width:32px;height:32px;border-radius:4px;object-fit:cover;">
+    <div class="footer-brand">
+      <div class="footer-wordmark">RASOR Center</div>
+      <div class="footer-sub">Risk &amp; Security Operations Research</div>
+    </div>
+  </div>
+  <div class="footer-links">
+    <a href="index.html">Home</a>
+    <a href="community.html">Community</a>
+    <a href="advisory.html">Advisory</a>
+  </div>
+  <div class="footer-copy">© 2025 RASOR Center · All rights reserved</div>
+</footer>
+
+
+<script>
+function toggleMenu() {
+  const menu = document.getElementById('mobileMenu');
+  const ham = document.getElementById('hamburger');
+  menu.classList.toggle('open');
+  ham.classList.toggle('open');
+  document.body.style.overflow = menu.classList.contains('open') ? 'hidden' : '';
+}
+</script>
+
+</body>
+</html>

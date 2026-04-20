@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>RASOR Center — Customer Trust & TPRM</title>
+<title>RASOR Advisory — Customer Trust & TPRM Programs</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;500;600;700;800&family=Barlow:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
@@ -92,68 +92,92 @@ footer { border-top:1px solid var(--border-dim); padding:2.5rem 4rem; display:fl
 
 
 /* HERO */
-.hero { position:relative; min-height:100vh; display:flex; flex-direction:column; justify-content:center; padding:8rem 4rem 6rem; overflow:hidden; }
-.hero-bg { position:absolute; inset:0; z-index:0; }
-.hero-bg::before { content:''; position:absolute; inset:0; background-image:linear-gradient(rgba(43,159,232,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(43,159,232,0.04) 1px,transparent 1px); background-size:60px 60px; mask-image:radial-gradient(ellipse 80% 80% at 50% 50%,black 40%,transparent 100%); }
-.hero-bg::after { content:''; position:absolute; top:-20%; right:-10%; width:70vw; height:70vw; background:radial-gradient(ellipse,rgba(43,159,232,0.07) 0%,transparent 65%); pointer-events:none; }
-.hero-content { position:relative; z-index:1; max-width:1100px; }
-.hero-eyebrow { font-family:'DM Mono',monospace; font-size:11px; letter-spacing:0.2em; text-transform:uppercase; color:var(--blue); margin-bottom:1.5rem; display:flex; align-items:center; gap:12px; opacity:0; animation:fadeUp 0.8s ease forwards 0.2s; }
-.hero-eyebrow::before { content:''; display:block; width:32px; height:1px; background:var(--blue); }
-.hero-headline { font-family:'Barlow Condensed',sans-serif; font-weight:800; font-size:clamp(44px,8vw,108px); line-height:0.92; letter-spacing:-0.01em; text-transform:uppercase; margin-bottom:2rem; opacity:0; animation:fadeUp 0.8s ease forwards 0.4s; }
-.line-blue { color:var(--blue-bright); }
-.line-outline { -webkit-text-stroke:1px rgba(255,255,255,0.3); color:transparent; }
-.hero-sub { font-size:17px; font-weight:300; color:var(--white-dim); line-height:1.75; max-width:540px; margin-bottom:3rem; opacity:0; animation:fadeUp 0.8s ease forwards 0.6s; }
-.hero-sub strong { color:var(--white); font-weight:400; }
-.hero-actions { display:flex; gap:1rem; flex-wrap:wrap; opacity:0; animation:fadeUp 0.8s ease forwards 0.8s; }
-.hero-scroll { position:absolute; bottom:2.5rem; left:4rem; display:flex; align-items:center; gap:10px; font-family:'DM Mono',monospace; font-size:10px; letter-spacing:0.15em; text-transform:uppercase; color:var(--white-hint); opacity:0; animation:fadeUp 0.8s ease forwards 1.2s; }
-.scroll-line { width:40px; height:1px; background:var(--white-hint); position:relative; overflow:hidden; }
-.scroll-line::after { content:''; position:absolute; left:-100%; top:0; width:100%; height:100%; background:var(--blue); animation:scrollSlide 2s ease-in-out infinite 1.5s; }
+.adv-hero { position:relative; min-height:85vh; display:flex; flex-direction:column; justify-content:center; padding:9rem 4rem 6rem; overflow:hidden; }
+.adv-hero-bg::before { content:''; position:absolute; inset:0; background-image:linear-gradient(rgba(200,150,90,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(200,150,90,0.03) 1px,transparent 1px); background-size:80px 80px; mask-image:radial-gradient(ellipse 70% 70% at 50% 50%,black 30%,transparent 100%); }
+.adv-hero-bg::after { content:''; position:absolute; top:-20%; left:-10%; width:60vw; height:60vw; background:radial-gradient(ellipse,rgba(200,150,90,0.06) 0%,transparent 65%); pointer-events:none; }
+.adv-hero-bg { position:absolute; inset:0; z-index:0; }
+.adv-hero-content { position:relative; z-index:1; max-width:900px; }
+.adv-eyebrow { font-family:'DM Mono',monospace; font-size:11px; letter-spacing:0.2em; text-transform:uppercase; color:var(--gold); margin-bottom:1.5rem; display:flex; align-items:center; gap:12px; opacity:0; animation:fadeUp 0.8s ease forwards 0.2s; }
+.adv-eyebrow::before { content:''; display:block; width:32px; height:1px; background:var(--gold); }
+.adv-headline { font-family:'Barlow Condensed',sans-serif; font-weight:800; font-size:clamp(40px,7vw,96px); line-height:0.92; letter-spacing:-0.01em; text-transform:uppercase; margin-bottom:2rem; opacity:0; animation:fadeUp 0.8s ease forwards 0.4s; }
+.adv-headline .line-gold { color:var(--gold); }
+.adv-headline .line-outline { -webkit-text-stroke:1px rgba(255,255,255,0.25); color:transparent; }
+.adv-sub { font-size:17px; font-weight:300; color:var(--white-dim); line-height:1.75; max-width:560px; margin-bottom:3rem; opacity:0; animation:fadeUp 0.8s ease forwards 0.6s; }
+.adv-sub strong { color:var(--white); font-weight:400; }
+.adv-actions { display:flex; gap:1rem; flex-wrap:wrap; opacity:0; animation:fadeUp 0.8s ease forwards 0.8s; }
 
-/* PREMISE */
-.premise { background:var(--black2); border-top:1px solid var(--border-dim); border-bottom:1px solid var(--border-dim); }
-.premise-inner { display:grid; grid-template-columns:1fr 1fr; gap:5rem; align-items:center; }
-.premise-statement { font-family:'Barlow Condensed',sans-serif; font-weight:600; font-size:clamp(24px,3.5vw,40px); line-height:1.2; text-transform:uppercase; letter-spacing:0.02em; }
-.premise-statement .hl { color:var(--blue-bright); display:block; }
-.premise-body { display:flex; flex-direction:column; gap:1.25rem; }
-.premise-point { display:flex; gap:1rem; align-items:flex-start; }
-.premise-icon { width:2px; flex-shrink:0; background:var(--blue); align-self:stretch; min-height:20px; margin-top:4px; }
-.premise-point p { font-size:14px; color:var(--white-dim); line-height:1.75; }
-.premise-point p strong { color:var(--white); font-weight:500; }
+/* DIFFERENTIATORS */
+.diff { background:var(--black2); border-top:1px solid var(--border-dim); border-bottom:1px solid var(--border-dim); }
+.diff-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--border-dim); border:1px solid var(--border-dim); margin-top:2.5rem; }
+.diff-block { background:var(--black2); padding:2rem; }
+.diff-num { font-family:'Barlow Condensed',sans-serif; font-weight:800; font-size:11px; letter-spacing:0.2em; color:var(--gold); margin-bottom:1rem; }
+.diff-title { font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:20px; text-transform:uppercase; letter-spacing:0.04em; margin-bottom:0.5rem; }
+.diff-desc { font-size:13px; color:var(--white-dim); line-height:1.7; }
 
-/* PATHS */
-.paths-grid { display:grid; grid-template-columns:1fr 1fr; gap:1.5rem; margin-top:2.5rem; }
-.path-card { background:var(--black3); border:1px solid var(--border-dim); border-radius:2px; padding:2.5rem; position:relative; overflow:hidden; transition:border-color 0.3s; text-decoration:none; display:block; }
-.path-card::before { content:''; position:absolute; top:0; left:0; right:0; height:2px; background:linear-gradient(90deg,var(--blue),transparent); opacity:0; transition:opacity 0.3s; }
-.path-card.gold-card::before { background:linear-gradient(90deg,var(--gold),transparent); }
-.path-card:hover { border-color:rgba(43,159,232,0.4); }
-.path-card.gold-card:hover { border-color:rgba(200,150,90,0.4); }
-.path-card:hover::before { opacity:1; }
-.path-tag { font-family:'DM Mono',monospace; font-size:9px; letter-spacing:0.18em; text-transform:uppercase; color:var(--blue); background:var(--blue-glow2); border:1px solid rgba(43,159,232,0.2); padding:4px 12px; border-radius:1px; display:inline-block; margin-bottom:1.25rem; }
-.path-tag.gold-tag { color:var(--gold); background:var(--gold-dim); border-color:rgba(200,150,90,0.3); }
-.path-title { font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:28px; text-transform:uppercase; letter-spacing:0.04em; margin-bottom:0.75rem; line-height:1.1; color:var(--white); }
-.path-desc { font-size:14px; color:var(--white-dim); line-height:1.75; margin-bottom:1.5rem; }
-.path-list { list-style:none; display:flex; flex-direction:column; gap:6px; margin-bottom:1.75rem; }
-.path-list li { font-size:12px; color:var(--white-hint); display:flex; gap:8px; line-height:1.5; font-family:'DM Mono',monospace; }
-.path-list li::before { content:'//'; color:var(--blue-dim); flex-shrink:0; }
-.path-card.gold-card .path-list li::before { color:rgba(200,150,90,0.5); }
-.path-cta { font-family:'DM Mono',monospace; font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:var(--blue); display:flex; align-items:center; gap:8px; transition:gap 0.2s; }
-.path-card.gold-card .path-cta { color:var(--gold); }
-.path-card:hover .path-cta { gap:14px; }
+/* PROGRAMS */
+.programs-grid { display:grid; grid-template-columns:1fr 1fr; gap:1.5rem; margin-top:2.5rem; }
+.program-card { background:var(--black3); border:1px solid var(--border-dim); border-radius:2px; padding:2.5rem; position:relative; overflow:hidden; transition:border-color 0.3s; }
+.program-card::after { content:''; position:absolute; top:0; left:0; bottom:0; width:2px; background:linear-gradient(180deg,var(--gold),transparent); opacity:0; transition:opacity 0.3s; }
+.program-card:hover { border-color:rgba(200,150,90,0.35); }
+.program-card:hover::after { opacity:1; }
+.program-tag { font-family:'DM Mono',monospace; font-size:9px; letter-spacing:0.18em; text-transform:uppercase; color:var(--gold); background:var(--gold-dim); border:1px solid rgba(200,150,90,0.25); padding:4px 12px; border-radius:1px; display:inline-block; margin-bottom:1.25rem; }
+.program-title { font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:26px; text-transform:uppercase; letter-spacing:0.04em; margin-bottom:0.5rem; line-height:1.1; }
+.program-pitch { font-size:14px; color:var(--white-dim); line-height:1.75; margin-bottom:1.5rem; }
+.program-phases { display:flex; flex-direction:column; gap:1px; background:var(--border-dim); margin-bottom:1.5rem; }
+.phase { background:var(--black3); padding:1rem 1.25rem; }
+.phase-label { font-family:'DM Mono',monospace; font-size:9px; letter-spacing:0.15em; text-transform:uppercase; color:var(--gold); margin-bottom:0.35rem; }
+.phase-title { font-size:13px; font-weight:500; margin-bottom:0.25rem; }
+.phase-price { font-family:'DM Mono',monospace; font-size:18px; color:var(--gold); }
+.phase-price span { font-size:10px; color:var(--white-hint); }
+.phase-items { list-style:none; margin-top:0.5rem; display:flex; flex-direction:column; gap:4px; }
+.phase-items li { font-size:12px; color:var(--white-hint); display:flex; gap:8px; line-height:1.5; }
+.phase-items li::before { content:'→'; color:rgba(200,150,90,0.5); font-family:'DM Mono',monospace; font-size:10px; flex-shrink:0; }
 
-/* PROOF */
-.proof { background:var(--black2); border-top:1px solid var(--border-dim); border-bottom:1px solid var(--border-dim); }
-.proof-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--border-dim); border:1px solid var(--border-dim); margin-top:2.5rem; }
-.proof-block { background:var(--black2); padding:2.5rem 2rem; }
-.proof-num { font-family:'Barlow Condensed',sans-serif; font-weight:800; font-size:56px; color:var(--blue-bright); line-height:1; margin-bottom:0.5rem; }
-.proof-label { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:0.14em; text-transform:uppercase; color:var(--white-hint); margin-bottom:0.5rem; }
-.proof-desc { font-size:13px; color:var(--white-dim); line-height:1.6; }
+/* ENGAGEMENT MODEL */
+.model { background:var(--black2); border-top:1px solid var(--border-dim); }
+.model-row { display:grid; grid-template-columns:1fr 2fr; gap:4rem; align-items:start; }
+.model-label-col { position:sticky; top:8rem; }
+.model-items { display:flex; flex-direction:column; gap:1px; background:var(--border-dim); border:1px solid var(--border-dim); }
+.model-item { background:var(--black2); padding:1.75rem 2rem; display:grid; grid-template-columns:auto 1fr; gap:1.5rem; align-items:start; transition:background 0.2s; }
+.model-item:hover { background:var(--black3); }
+.model-step { font-family:'Barlow Condensed',sans-serif; font-weight:800; font-size:48px; color:rgba(200,150,90,0.12); line-height:1; }
+.model-body { }
+.model-title { font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:20px; text-transform:uppercase; letter-spacing:0.04em; margin-bottom:0.35rem; }
+.model-desc { font-size:13px; color:var(--white-dim); line-height:1.7; }
+
+/* VS TABLE */
+.vs-section { }
+.vs-table { width:100%; border-collapse:collapse; margin-top:2.5rem; }
+.vs-table th { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:0.14em; text-transform:uppercase; padding:1rem 1.5rem; border-bottom:1px solid var(--border-dim); text-align:left; color:var(--white-hint); }
+.vs-table th.hl-col { color:var(--gold); border-bottom-color:rgba(200,150,90,0.3); }
+.vs-table td { padding:1rem 1.5rem; border-bottom:0.5px solid var(--border-dim); font-size:13px; color:var(--white-dim); vertical-align:middle; }
+.vs-table td.hl-col { color:var(--white); background:rgba(200,150,90,0.04); }
+.vs-table tr:last-child td { border-bottom:none; }
+.check { color:var(--gold); font-size:16px; }
+.cross { color:var(--white-hint); opacity:0.4; }
+
+/* CTA */
+.adv-cta { background:var(--black2); border-top:1px solid var(--border-dim); }
+.adv-cta-inner { display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:center; }
+.adv-cta-text h2 { font-family:'Barlow Condensed',sans-serif; font-weight:800; font-size:clamp(36px,5vw,60px); text-transform:uppercase; line-height:1; margin-bottom:1rem; }
+.adv-cta-text h2 span { color:var(--gold); }
+.adv-cta-text p { font-size:15px; color:var(--white-dim); line-height:1.75; }
+.adv-cta-form { background:var(--black3); border:1px solid var(--border-dim); border-radius:2px; padding:2.5rem; }
+.form-group { margin-bottom:1.25rem; }
+.form-label { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:0.14em; text-transform:uppercase; color:var(--white-hint); display:block; margin-bottom:0.5rem; }
+.form-input { width:100%; background:var(--black2); border:1px solid var(--border-dim); border-radius:2px; padding:12px 16px; color:var(--white); font-family:'Barlow',sans-serif; font-size:14px; outline:none; transition:border-color 0.2s; }
+.form-input:focus { border-color:var(--gold); }
+.form-input::placeholder { color:var(--white-hint); }
 
 @media (max-width:900px) {
-  .hero { padding:6rem 1.25rem 4rem; }
-  .hero-scroll { display:none; }
-  .premise-inner { grid-template-columns:1fr; gap:2.5rem; }
-  .paths-grid { grid-template-columns:1fr; }
-  .proof-grid { grid-template-columns:1fr; }
+  .adv-hero { padding:6rem 1.25rem 4rem; }
+  .diff-grid { grid-template-columns:1fr; }
+  .programs-grid { grid-template-columns:1fr; }
+  .model-row { grid-template-columns:1fr; gap:2rem; }
+  .model-label-col { position:static; }
+  .vs-table { font-size:12px; }
+  .vs-table th, .vs-table td { padding:0.75rem 1rem; }
+  .adv-cta-inner { grid-template-columns:1fr; gap:2.5rem; }
 }
 
 </style>
@@ -169,9 +193,9 @@ footer { border-top:1px solid var(--border-dim); padding:2.5rem 4rem; display:fl
     </div>
   </a>
   <ul class="nav-links">
-    <li><a href="index.html" class='active'>Home</a></li>
+    <li><a href="index.html" >Home</a></li>
     <li><a href="community.html" >Community</a></li>
-    <li><a href="advisory.html" >Advisory</a></li>
+    <li><a href="advisory.html" class='active'>Advisory</a></li>
     <li><a href="community.html#cta" class="nav-cta">Get Started</a></li>
   </ul>
   <button class="hamburger" id="hamburger" onclick="toggleMenu()">
@@ -186,129 +210,247 @@ footer { border-top:1px solid var(--border-dim); padding:2.5rem 4rem; display:fl
 </div>
 
 
-<section class="hero">
-  <div class="hero-bg"></div>
-  <div class="hero-content">
-    <div class="hero-eyebrow">Risk &amp; Security Operations Research</div>
-    <h1 class="hero-headline">
-      <span class="line-blue">Enterprise Deals</span><br>
-      <span>Shouldn't Stall</span><br>
-      <span class="line-outline">On Security.</span>
+<section class="adv-hero">
+  <div class="adv-hero-bg"></div>
+  <div class="adv-hero-content">
+    <div class="adv-eyebrow">RASOR Advisory</div>
+    <h1 class="adv-headline">
+      <span class="line-gold">Your Trust Program</span><br>
+      <span>Should Close</span><br>
+      <span class="line-outline">Deals. Not Block Them.</span>
     </h1>
-    <p class="hero-sub">We build <strong>Customer Trust and Third Party Risk programs</strong> that accelerate revenue — and develop the security professionals who run them.</p>
-    <div class="hero-actions">
-      <a href="advisory.html" class="btn-primary">Work With Us</a>
-      <a href="community.html" class="btn-secondary">Join the Community</a>
+    <p class="adv-sub">We build and manage <strong>Customer Trust and Third Party Risk programs</strong> for growth-stage tech companies — so enterprise deals move faster and your product team stops waiting on vendor approvals.</p>
+    <div class="adv-actions">
+      <a href="#contact" class="btn-gold">Book a Strategy Call</a>
+      <a href="#programs" class="btn-secondary">See the Programs</a>
     </div>
-  </div>
-  <div class="hero-scroll">
-    <div class="scroll-line"></div>
-    Scroll to explore
   </div>
 </section>
 
-<section class="premise">
+<section class="diff">
   <div class="inner">
-    <div class="premise-inner">
-      <div>
-        <div class="section-label">The Problem</div>
-        <div class="premise-statement">
-          Companies don't fail audits<br>
-          <span class="hl">because of missing tools.</span>
-          They fail because nobody<br>owns the program.
-        </div>
+    <div class="section-label gold">Why RASOR Advisory</div>
+    <h2 class="section-title">Not a Big Four. <span class="accent-gold">Not a vCISO.</span></h2>
+    <div class="diff-grid">
+      <div class="diff-block">
+        <div class="diff-num">01 —</div>
+        <div class="diff-title">Built for Revenue</div>
+        <div class="diff-desc">Big Four firms build compliance programs for enterprises that need a brand name on a report. We build trust programs for growth-stage companies that need deals to close. Different problem. Different solution.</div>
       </div>
-      <div class="premise-body">
-        <div class="premise-point">
-          <div class="premise-icon"></div>
-          <p><strong>Enterprise deals get stuck in security review</strong> because the trust program isn't built, isn't current, and nobody can answer a questionnaire in under a week. That's a revenue problem, not a security problem.</p>
-        </div>
-        <div class="premise-point">
-          <div class="premise-icon"></div>
-          <p><strong>Product velocity slows down</strong> when vendor approvals take six weeks because there's no TPRM process. Engineering waits. Roadmaps slip. The business pays for it.</p>
-        </div>
-        <div class="premise-point">
-          <div class="premise-icon"></div>
-          <p><strong>RASOR operates at both levels.</strong> We build the programs for organizations and develop the professionals who run them — so the work gets done and stays done.</p>
-        </div>
+      <div class="diff-block">
+        <div class="diff-num">02 —</div>
+        <div class="diff-title">Practitioners, Not Consultants</div>
+        <div class="diff-desc">Our team is actively working inside security programs — not studying them from the outside. Every framework we deploy is grounded in what's working inside real companies right now.</div>
+      </div>
+      <div class="diff-block">
+        <div class="diff-num">03 —</div>
+        <div class="diff-title">We Staff From Our Own Pipeline</div>
+        <div class="diff-desc">RASOR Fellows are trained specifically in Customer Trust and TPRM using our methodology. When you need a full-time operator, we place someone who already knows the playbook.</div>
       </div>
     </div>
   </div>
 </section>
 
-<section id="paths">
+<section id="programs">
   <div class="inner">
-    <div class="section-label">Two Paths</div>
-    <h2 class="section-title">One <span class="accent">Ecosystem.</span></h2>
-    <div class="paths-grid">
-      <a href="community.html" class="path-card">
-        <span class="path-tag">For Professionals · RASOR Center</span>
-        <div class="path-title">Develop Your Career in Customer Trust &amp; TPRM</div>
-        <p class="path-desc">The RASOR Center is an application-only performance community for mid-career security professionals specializing in Customer Trust, TPRM, and AI Trust. Courses, coaching, and a network that opens doors.</p>
-        <ul class="path-list">
-          <li>Full course catalogue — Customer Trust, TPRM, AI Trust</li>
-          <li>Live lab sessions and performance coaching</li>
-          <li>Career acceleration and placement pipeline</li>
-          <li>$49/month · Application only</li>
-        </ul>
-        <div class="path-cta">Join the Community →</div>
-      </a>
-      <a href="advisory.html" class="path-card gold-card">
-        <span class="path-tag gold-tag">For Organizations · RASOR Advisory</span>
-        <div class="path-title">Build a Trust Program That Closes Deals</div>
-        <p class="path-desc">RASOR Advisory builds and manages Customer Trust and Third Party Risk programs for growth-stage tech companies. We lead the architecture. Our trained Fellows run the operations.</p>
-        <ul class="path-list">
-          <li>Customer Trust Program — build &amp; manage</li>
-          <li>Third Party Risk Program — build &amp; manage</li>
-          <li>Fractional oversight retainer — $5k/month</li>
-          <li>Fellow placement for day-to-day operations</li>
-        </ul>
-        <div class="path-cta">Explore Advisory →</div>
-      </a>
+    <div class="section-label gold">The Programs</div>
+    <h2 class="section-title">Two Programs. <span class="accent-gold">One Revenue Engine.</span></h2>
+    <div class="programs-grid">
+
+      <div class="program-card">
+        <span class="program-tag">Program 01</span>
+        <div class="program-title">Customer Trust Program</div>
+        <p class="program-pitch">Enterprise prospects are asking security questions your team can't answer fast enough. We build the trust infrastructure that makes security a competitive advantage — not a deal blocker.</p>
+        <div class="program-phases">
+          <div class="phase">
+            <div class="phase-label">Phase 01 · Build</div>
+            <div class="phase-price">$15k–$25k<span> · one-time project fee</span></div>
+            <ul class="phase-items">
+              <li>SOC 2 readiness and completion (using your existing tool)</li>
+              <li>Trust page and security documentation</li>
+              <li>Security questionnaire library and response process</li>
+              <li>Internal ownership structure and runbook</li>
+              <li>Sales team trust narrative and objection handling</li>
+            </ul>
+          </div>
+          <div class="phase">
+            <div class="phase-label">Phase 02 · Manage</div>
+            <div class="phase-price">$5k<span>/month retainer</span></div>
+            <ul class="phase-items">
+              <li>Questionnaire management — 24hr turnaround target</li>
+              <li>SOC 2 renewal oversight and coordination</li>
+              <li>Trust page and documentation updates</li>
+              <li>Monthly executive trust program report</li>
+              <li>Quarterly sales team enablement sessions</li>
+            </ul>
+          </div>
+        </div>
+        <a href="#contact" class="btn-gold">Inquire About This Program</a>
+      </div>
+
+      <div class="program-card">
+        <span class="program-tag">Program 02</span>
+        <div class="program-title">Third Party Risk Program</div>
+        <p class="program-pitch">Your engineering team is waiting weeks for vendor approvals. There's no process, no library, no clear ownership. We install the system so new vendors get approved in days — not weeks.</p>
+        <div class="program-phases">
+          <div class="phase">
+            <div class="phase-label">Phase 01 · Build</div>
+            <div class="phase-price">$15k–$25k<span> · one-time project fee</span></div>
+            <ul class="phase-items">
+              <li>Vendor risk tier framework and classification model</li>
+              <li>Assessment questionnaire library by vendor category</li>
+              <li>Approval workflow and escalation process</li>
+              <li>Vendor inventory and risk register</li>
+              <li>Internal training and ownership documentation</li>
+            </ul>
+          </div>
+          <div class="phase">
+            <div class="phase-label">Phase 02 · Manage</div>
+            <div class="phase-price">$5k<span>/month retainer</span></div>
+            <ul class="phase-items">
+              <li>New vendor assessment and approval oversight</li>
+              <li>Annual vendor re-assessment coordination</li>
+              <li>AI vendor risk assessments (emerging category)</li>
+              <li>Monthly TPRM program report to leadership</li>
+              <li>Continuous framework updates as threats evolve</li>
+            </ul>
+          </div>
+        </div>
+        <a href="#contact" class="btn-gold">Inquire About This Program</a>
+      </div>
+
     </div>
   </div>
 </section>
 
-<section class="proof">
+<section class="model">
   <div class="inner">
-    <div class="section-label">Why It Matters</div>
-    <h2 class="section-title">The Cost of <span class="accent">Doing Nothing.</span></h2>
-    <div class="proof-grid">
-      <div class="proof-block">
-        <div class="proof-num">$500k+</div>
-        <div class="proof-label">Average enterprise deal value</div>
-        <div class="proof-desc">A single stalled enterprise deal costs more than a year of trust program investment. Your SOC 2 report is a sales asset — treat it like one.</div>
+    <div class="section-label gold">How It Works</div>
+    <h2 class="section-title">The RASOR <span class="accent-gold">Engagement Model.</span></h2>
+    <div class="model-row" style="margin-top:2.5rem;">
+      <div class="model-label-col">
+        <p style="font-size:14px;color:var(--white-dim);line-height:1.75;">We lead every engagement at the architecture level. Our trained Fellows handle day-to-day operations. You get senior-level thinking without the overhead.</p>
       </div>
-      <div class="proof-block">
-        <div class="proof-num">6 wks</div>
-        <div class="proof-label">Avg vendor approval without a TPRM process</div>
-        <div class="proof-desc">Engineering teams wait weeks for vendor approvals that should take days. Every delay is a direct tax on your product roadmap.</div>
-      </div>
-      <div class="proof-block">
-        <div class="proof-num">24 hrs</div>
-        <div class="proof-label">Target questionnaire turnaround with RASOR</div>
-        <div class="proof-desc">Enterprise prospects expect fast, accurate security questionnaire responses. We build the library and the process so your team is never caught off guard.</div>
+      <div class="model-items">
+        <div class="model-item">
+          <div class="model-step">01</div>
+          <div class="model-body">
+            <div class="model-title">Strategy Call</div>
+            <div class="model-desc">30 minutes. We diagnose where your trust or risk program is costing you deals or slowing down your team. No pitch — just a real assessment of where the problem is.</div>
+          </div>
+        </div>
+        <div class="model-item">
+          <div class="model-step">02</div>
+          <div class="model-body">
+            <div class="model-title">Program Architecture</div>
+            <div class="model-desc">We scope the build engagement, define deliverables, and identify who inside your organization owns what. Clear start, clear end, clear outcome.</div>
+          </div>
+        </div>
+        <div class="model-item">
+          <div class="model-step">03</div>
+          <div class="model-body">
+            <div class="model-title">Build Phase</div>
+            <div class="model-desc">60–90 days. We build the program, document everything, and train your team. You get a fully operational Customer Trust or TPRM program with an internal owner who knows how to run it.</div>
+          </div>
+        </div>
+        <div class="model-item">
+          <div class="model-step">04</div>
+          <div class="model-body">
+            <div class="model-title">Manage &amp; Optimize</div>
+            <div class="model-desc">$5k/month retainer. We manage ongoing operations, questionnaire flow, renewals, and reporting — with the option to place a RASOR Fellow full-time when you're ready to bring it in-house.</div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<section id="cta">
+<section class="vs-section">
   <div class="inner">
-    <div class="section-label">Get Started</div>
-    <h2 class="section-title">Choose Your <span class="accent">Path.</span></h2>
-    <div class="paths-grid" style="margin-top:2.5rem;">
-      <div class="path-card">
-        <span class="path-tag">For Professionals</span>
-        <div class="path-title">Join RASOR Center</div>
-        <p class="path-desc">Application-only. $49/month. Build your career in Customer Trust and TPRM — the disciplines that sit at the intersection of security and revenue.</p>
-        <a href="community.html#apply" class="btn-primary" style="margin-top:auto;">Apply for Membership</a>
+    <div class="section-label gold">The Comparison</div>
+    <h2 class="section-title">RASOR vs <span class="accent-gold">The Alternatives.</span></h2>
+    <table class="vs-table">
+      <thead>
+        <tr>
+          <th>Capability</th>
+          <th>Big Four</th>
+          <th>Freelance vCISO</th>
+          <th class="hl-col">RASOR Advisory</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Built for revenue, not compliance theater</td>
+          <td><span class="cross">✕</span></td>
+          <td><span class="cross">✕</span></td>
+          <td class="hl-col"><span class="check">✓</span></td>
+        </tr>
+        <tr>
+          <td>Customer Trust Program with sales enablement</td>
+          <td><span class="cross">✕</span></td>
+          <td>Varies</td>
+          <td class="hl-col"><span class="check">✓</span></td>
+        </tr>
+        <tr>
+          <td>Dedicated TPRM program build</td>
+          <td>Expensive</td>
+          <td>Rarely</td>
+          <td class="hl-col"><span class="check">✓</span></td>
+        </tr>
+        <tr>
+          <td>AI Trust &amp; vendor risk (emerging)</td>
+          <td>Building it now</td>
+          <td><span class="cross">✕</span></td>
+          <td class="hl-col"><span class="check">✓</span></td>
+        </tr>
+        <tr>
+          <td>Trained operators to run the program</td>
+          <td><span class="cross">✕</span></td>
+          <td><span class="cross">✕</span></td>
+          <td class="hl-col"><span class="check">✓</span></td>
+        </tr>
+        <tr>
+          <td>Right-sized for Series A–C companies</td>
+          <td><span class="cross">✕</span></td>
+          <td>Sometimes</td>
+          <td class="hl-col"><span class="check">✓</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="adv-cta" id="contact">
+  <div class="inner">
+    <div class="adv-cta-inner">
+      <div class="adv-cta-text">
+        <div class="section-label gold">Book a Call</div>
+        <h2>Let's Talk About <span>Your Program.</span></h2>
+        <p style="margin-top:1rem;">30 minutes. We'll identify exactly where your trust or risk program is costing you — and whether RASOR Advisory is the right fit to fix it.</p>
+        <div style="margin-top:2rem;display:flex;flex-direction:column;gap:0.75rem;">
+          <div style="font-size:13px;color:var(--white-dim);display:flex;gap:10px;align-items:center;"><span style="color:var(--gold);font-family:'DM Mono',monospace;font-size:10px;">→</span> No pitch. Just a real conversation.</div>
+          <div style="font-size:13px;color:var(--white-dim);display:flex;gap:10px;align-items:center;"><span style="color:var(--gold);font-family:'DM Mono',monospace;font-size:10px;">→</span> We'll tell you honestly if we're not the right fit.</div>
+          <div style="font-size:13px;color:var(--white-dim);display:flex;gap:10px;align-items:center;"><span style="color:var(--gold);font-family:'DM Mono',monospace;font-size:10px;">→</span> You'll leave with clarity either way.</div>
+        </div>
       </div>
-      <div class="path-card gold-card">
-        <span class="path-tag gold-tag">For Organizations</span>
-        <div class="path-title">Book a Strategy Call</div>
-        <p class="path-desc">30 minutes. We'll diagnose exactly where your trust program is costing you deals or slowing down your product — and what it takes to fix it.</p>
-        <a href="advisory.html#contact" class="btn-gold" style="margin-top:auto;">Book the Call</a>
+      <div class="adv-cta-form">
+        <div class="form-group">
+          <label class="form-label">Your Name</label>
+          <input type="text" class="form-input" placeholder="First and last name">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Work Email</label>
+          <input type="email" class="form-input" placeholder="you@company.com">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Company &amp; Role</label>
+          <input type="text" class="form-input" placeholder="e.g. Acme Inc · Head of Security">
+        </div>
+        <div class="form-group">
+          <label class="form-label">What's the main challenge?</label>
+          <textarea class="form-input" rows="3" placeholder="e.g. SOC 2 stalled, losing deals, no TPRM process..."></textarea>
+        </div>
+        <button class="btn-gold" style="width:100%;text-align:center;">Request Strategy Call</button>
       </div>
     </div>
   </div>
